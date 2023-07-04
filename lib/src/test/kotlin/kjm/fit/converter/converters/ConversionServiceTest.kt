@@ -1,0 +1,25 @@
+package kjm.fit.converter.converters
+
+import kjm.fit.converter.out.FitToJson
+import kjm.fit.converter.wrappers.FitDataWrapper
+import org.junit.jupiter.api.Assertions.*
+import org.junit.jupiter.api.Test
+
+class ConversionServiceTest {
+
+    @Test
+    fun canConvert() {
+        val conversionService = ConversionService()
+        conversionService.addConverter(FitDataWrapperConverter())
+
+        assertTrue(conversionService.canConvert(FitDataWrapper::class.java, FitToJson::class.java))
+    }
+
+    @Test
+    fun cantConvert() {
+        val conversionService = ConversionService()
+        conversionService.addConverter(FitDataWrapperConverter())
+
+        assertFalse(conversionService.canConvert(FitDataWrapper::class.java, String::class.java))
+    }
+}
