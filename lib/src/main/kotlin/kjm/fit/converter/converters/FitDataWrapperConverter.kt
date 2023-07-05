@@ -1,14 +1,14 @@
 package kjm.fit.converter.converters
 
-import kjm.fit.converter.out.FitToJson
+import kjm.fit.converter.out.FitFileData
 import kjm.fit.converter.wrappers.FitDataWrapper
 
-class FitDataWrapperConverter : Converter<FitDataWrapper, FitToJson> {
-    override fun convert(source: FitDataWrapper): FitToJson {
+class FitDataWrapperConverter : Converter<FitDataWrapper, FitFileData> {
+    override fun convert(source: FitDataWrapper): FitFileData {
 
         val (fileName, metricSystem, session, events, products, records) = source
 
-        return FitToJson(
+        return FitFileData(
             activityName = fileName,
             averageCadence = session.avgCadence?.toDouble(),
             averageHR = session.avgHeartRate?.toDouble(),
@@ -24,8 +24,7 @@ class FitDataWrapperConverter : Converter<FitDataWrapper, FitToJson> {
             totalAscent = session?.totalAscent?.let { getElevationInRequestedUnit(it, metricSystem) },
             totalDescent = session?.totalDescent?.let { getElevationInRequestedUnit(it, metricSystem) },
             sport = session.sport.toString(),
-            productsUsed = products.filter { !it.unknownProduct }.toSet(),
-            unknownProducts = products.filter { it.unknownProduct }.toSet(),
+            productsUsed = products.toSet(),
             events = events,
             activityRecords = records,
         )

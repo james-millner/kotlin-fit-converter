@@ -14,7 +14,6 @@ class FitProductConverter: Converter<DeviceInfoMesg, FitProduct> {
             productName = productName,
             productDataConnection = source.sourceType?.toString(),
             manufacturer = Manufacturer.getStringFromValue(source.manufacturer),
-            unknownProduct = productName == "Unknown",
             antDeviceNumber = source.antDeviceNumber?.toLong(),
             bodyLocation = source.sensorPosition?.let { BodyLocation.getStringFromValue(it) },
         )
@@ -26,7 +25,6 @@ class FitProductConverter: Converter<DeviceInfoMesg, FitProduct> {
         } else if(source.faveroProduct != null) {
             FaveroProduct.getStringFromValue(source.faveroProduct)
         } else {
-            println(source.productName)
-            "Unknown"
+            source.productName
         }
 }

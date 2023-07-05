@@ -3,7 +3,7 @@ package kjm.fit.converter.out
 import kotlinx.serialization.Serializable
 
 @Serializable
-data class FitToJson(
+data class FitFileData(
     val activityName: String,
     val activityStartDateTime: String,
     val sport: String,
@@ -22,5 +22,4 @@ data class FitToJson(
     val productsUsed: Set<FitProduct> = emptySet(),
     val events: Set<FitEvent> = emptySet(),
     val activityRecords: Set<ActivityRecord> = emptySet(),
-    val unknownProducts: Set<FitProduct>,
 )

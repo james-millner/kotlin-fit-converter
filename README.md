@@ -1,11 +1,11 @@
-# Garmin FIT Converter Library
+# Kotlin Fit Converter
 
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 [![Kotlin](https://img.shields.io/badge/kotlin-1.8.10-blue.svg)](https://kotlinlang.org/)
 [![Latest Release](https://img.shields.io/badge/release-v1.0.0-brightgreen.svg)](https://github.com/example/garmin-fit-converter/releases)
 [![Gradle Build & Test](https://github.com/james-millner/kotlin-fit-converter/actions/workflows/gradle.yml/badge.svg)](https://github.com/james-millner/kotlin-fit-converter/actions/workflows/gradle.yml)
 
-The Garmin FIT Converter Library is a Kotlin-based utility that allows users to convert Garmin FIT files into different formats. Currently, JSON format is supported, and more options will be added in future releases.
+The Kotlin Fit Converter Library is a Kotlin-based utility that allows users to convert Garmin FIT files into different formats. Currently, JSON format is supported, and more options will be added in future releases.
 
 > The Flexible and Interoperable Data Transfer (FIT) protocol is designed specifically for the storing and sharing of data that originates from sport, fitness and health devices. The FIT protocol defines a set of data storage templates (FIT messages) that can be used to store information such as activity data, courses, and workouts. It is designed to be compact, interoperable and extensible.
 

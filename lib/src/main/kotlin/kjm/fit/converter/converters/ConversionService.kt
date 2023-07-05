@@ -12,13 +12,13 @@ open class ConversionService {
     fun <S, T> convert(source: S, targetType: Class<T>): T? {
         val sourceClass = source!!::class.java
         val converter = findConverter<S, T>(sourceClass, targetType)
-            ?: findConverterInSuperclasses<S, T>(sourceClass.superclass.superclass, targetType)
+            ?: findConverterInSuperclasses(sourceClass.superclass, targetType)
         return converter?.convert(source)
     }
 
     fun <S, T> canConvert(sourceType: Class<S>, targetType: Class<T>): Boolean {
         val converter = findConverter<S, T>(sourceType, targetType)
-            ?: findConverter<S, T>(sourceType.superclass, targetType)
+            ?: findConverterInSuperclasses(sourceType.superclass, targetType)
         return converter != null
     }
 

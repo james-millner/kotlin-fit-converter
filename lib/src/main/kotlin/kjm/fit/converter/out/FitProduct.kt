@@ -7,7 +7,6 @@ data class FitProduct(
     val productName: String,
     val productDataConnection: String?, // sourceType
     val manufacturer: String,
-    val unknownProduct: Boolean,
     val antDeviceNumber: Long?,
     val bodyLocation: String?
 )
