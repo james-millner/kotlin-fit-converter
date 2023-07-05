@@ -1,6 +1,6 @@
 package kjm.fit.converter.converters
 
-import kjm.fit.converter.out.FitFileData
+import kjm.fit.converter.out.models.FitFileData
 import kjm.fit.converter.wrappers.FitDataWrapper
 import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.Test

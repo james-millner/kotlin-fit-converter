@@ -2,8 +2,7 @@ package kjm.fit.converter.converters
 
 import com.garmin.fit.DeviceInfoMesg
 import com.garmin.fit.FitMessages
-import kjm.fit.converter.out.FitEvent
-import kjm.fit.converter.out.FitProduct
+import kjm.fit.converter.out.models.FitProduct
 import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.BeforeAll
 import org.junit.jupiter.api.Test

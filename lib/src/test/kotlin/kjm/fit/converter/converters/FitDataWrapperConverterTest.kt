@@ -1,10 +1,10 @@
 package kjm.fit.converter.converters
 
 import com.garmin.fit.FitMessages
-import kjm.fit.converter.out.ActivityRecord
-import kjm.fit.converter.out.FitEvent
-import kjm.fit.converter.out.FitFileData
-import kjm.fit.converter.out.FitProduct
+import kjm.fit.converter.out.models.ActivityRecord
+import kjm.fit.converter.out.models.FitEvent
+import kjm.fit.converter.out.models.FitFileData
+import kjm.fit.converter.out.models.FitProduct
 import kjm.fit.converter.wrappers.FitDataWrapper
 import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.BeforeAll

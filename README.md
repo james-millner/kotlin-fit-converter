@@ -13,6 +13,8 @@ To ensure full understanding and legal compliance, I strongly recommend users th
 
 Source: https://developer.garmin.com/fit/overview/
 
+The version of the Garmin FIT SDK used in this project is **21.115.00.**
+
 ## Features
 
 - Convert Garmin FIT files into JSON format.

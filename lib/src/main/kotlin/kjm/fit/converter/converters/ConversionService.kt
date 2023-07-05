@@ -2,7 +2,7 @@ package kjm.fit.converter.converters
 
 import java.lang.reflect.ParameterizedType
 
-open class ConversionService {
+class ConversionService {
     protected val converters: MutableList<Converter<*, *>> = mutableListOf()
 
     fun <S, T> addConverter(converter: Converter<S, T>) {

@@ -1,4 +1,4 @@
-package kjm.fit.converter.out
+package kjm.fit.converter.out.models
 
 import kotlinx.serialization.Serializable
 

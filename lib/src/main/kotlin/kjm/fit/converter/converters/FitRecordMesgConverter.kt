@@ -1,10 +1,10 @@
 package kjm.fit.converter.converters
 
 import com.garmin.fit.RecordMesg
-import kjm.fit.converter.out.ActivityRecord
-import kjm.fit.converter.out.Location
+import kjm.fit.converter.out.models.ActivityRecord
+import kjm.fit.converter.out.models.Location
 
-class FitRecordMesgConverter: Converter<RecordMesg, ActivityRecord> {
+internal class FitRecordMesgConverter: Converter<RecordMesg, ActivityRecord> {
     override fun convert(source: RecordMesg): ActivityRecord =
         ActivityRecord(
             timestamp = source.timestamp.date.toString(),

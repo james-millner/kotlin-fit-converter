@@ -1,9 +1,9 @@
 package kjm.fit.converter.converters
 
-import kjm.fit.converter.out.FitFileData
+import kjm.fit.converter.out.models.FitFileData
 import kjm.fit.converter.wrappers.FitDataWrapper
 
-class FitDataWrapperConverter : Converter<FitDataWrapper, FitFileData> {
+internal class FitDataWrapperConverter : Converter<FitDataWrapper, FitFileData> {
     override fun convert(source: FitDataWrapper): FitFileData {
 
         val (fileName, metricSystem, session, events, products, records) = source

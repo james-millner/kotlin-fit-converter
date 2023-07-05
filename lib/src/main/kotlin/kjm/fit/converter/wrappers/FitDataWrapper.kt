@@ -1,9 +1,9 @@
 package kjm.fit.converter.wrappers
 
 import com.garmin.fit.SessionMesg
-import kjm.fit.converter.out.ActivityRecord
-import kjm.fit.converter.out.FitEvent
-import kjm.fit.converter.out.FitProduct
+import kjm.fit.converter.out.models.ActivityRecord
+import kjm.fit.converter.out.models.FitEvent
+import kjm.fit.converter.out.models.FitProduct
 
 data class FitDataWrapper(
     val fitFileName: String,
