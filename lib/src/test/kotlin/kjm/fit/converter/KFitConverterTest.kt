@@ -16,7 +16,7 @@ class KFitConverterTest {
         val fitData = kFitConverter.convert("my-test-file", true, fileUnderTest!!)
         assertNotNull(fitData)
         assertEquals(18, fitData.events.size)
-        assertEquals(4, fitData.productsUsed.size)
+        assertEquals(3, fitData.productsUsed.size)
         assertEquals(16222, fitData.activityRecords.size)
     }
 }

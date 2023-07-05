@@ -1,6 +1,5 @@
 package kjm.fit.converter.converters
 
-import com.garmin.fit.BodyLocation
 import com.garmin.fit.DeviceInfoMesg
 import com.garmin.fit.FaveroProduct
 import com.garmin.fit.GarminProduct
@@ -13,9 +12,7 @@ internal class FitProductConverter: Converter<DeviceInfoMesg, FitProduct> {
         return FitProduct(
             productName = productName,
             productDataConnection = source.sourceType?.toString(),
-            manufacturer = Manufacturer.getStringFromValue(source.manufacturer),
-            antDeviceNumber = source.antDeviceNumber?.toLong(),
-            bodyLocation = source.sensorPosition?.let { BodyLocation.getStringFromValue(it) },
+            manufacturer = Manufacturer.getStringFromValue(source.manufacturer)
         )
     }
 
@@ -25,6 +22,6 @@ internal class FitProductConverter: Converter<DeviceInfoMesg, FitProduct> {
         } else if(source.faveroProduct != null) {
             FaveroProduct.getStringFromValue(source.faveroProduct)
         } else {
-            "Unknown"
+            source?.productName ?: "Unknown"
         }
 }
