@@ -38,13 +38,11 @@ jobs:
       uses: gradle/gradle-build-action@v2
 
     - name: Execute Gradle build
-      run: ./gradlew clean build
-      env:
-        PACKAGE_TOKEN: ${{ secrets.PACKAGE_TOKEN}}
+      run: ./gradlew clean build test
 
     - name: Upload build reports
       uses: actions/upload-artifact@v3
       with:
         name: test-report
-        path: build/reports/tests/test
+        path: lib/build/reports/tests/test
 
