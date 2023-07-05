@@ -11,7 +11,7 @@ import com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar
 plugins {
     // Apply the org.jetbrains.kotlin.jvm Plugin to add support for Kotlin.
     id("org.jetbrains.kotlin.jvm") version "1.8.10"
-
+    id ("org.jetbrains.kotlin.plugin.serialization") version "1.8.10"
     // For my fat JAR needs
     id("com.github.johnrengelman.shadow") version "8.1.1"
 
