@@ -1,0 +1,76 @@
+$dokka.format:html-v1
+$dokka.linkExtension:html
+$dokka.location:kjm.fit.converter.converters////PointingToDeclaration/kotlin-fit-converter-lib/kjm.fit.converter.converters/index.html
+$dokka.location:kjm.fit.converter.converters/ConversionService///PointingToDeclaration/kotlin-fit-converter-lib/kjm.fit.converter.converters/-conversion-service/index.html
+$dokka.location:kjm.fit.converter.converters/ConversionService/ConversionService/#/PointingToDeclaration/kotlin-fit-converter-lib/kjm.fit.converter.converters/-conversion-service/-conversion-service.html
+$dokka.location:kjm.fit.converter.converters/ConversionService/addConverter/#kjm.fit.converter.converters.Converter[TypeParam(bounds=[kotlin.Any?]),TypeParam(bounds=[kotlin.Any?])]/PointingToDeclaration/kotlin-fit-converter-lib/kjm.fit.converter.converters/-conversion-service/add-converter.html
+$dokka.location:kjm.fit.converter.converters/ConversionService/canConvert/#java.lang.Class[TypeParam(bounds=[kotlin.Any?])]#java.lang.Class[TypeParam(bounds=[kotlin.Any?])]/PointingToDeclaration/kotlin-fit-converter-lib/kjm.fit.converter.converters/-conversion-service/can-convert.html
+$dokka.location:kjm.fit.converter.converters/ConversionService/convert/#TypeParam(bounds=[kotlin.Any?])#java.lang.Class[TypeParam(bounds=[kotlin.Any?])]/PointingToDeclaration/kotlin-fit-converter-lib/kjm.fit.converter.converters/-conversion-service/convert.html
+$dokka.location:kjm.fit.converter.converters/Converter///PointingToDeclaration/kotlin-fit-converter-lib/kjm.fit.converter.converters/-converter/index.html
+$dokka.location:kjm.fit.converter.converters/Converter/convert/#TypeParam(bounds=[kotlin.Any?])/PointingToDeclaration/kotlin-fit-converter-lib/kjm.fit.converter.converters/-converter/convert.html
+$dokka.location:kjm.fit.converter.file////PointingToDeclaration/kotlin-fit-converter-lib/kjm.fit.converter.file/index.html
+$dokka.location:kjm.fit.converter.file/KFitFileToDataClassHandler///PointingToDeclaration/kotlin-fit-converter-lib/kjm.fit.converter.file/-k-fit-file-to-data-class-handler/index.html
+$dokka.location:kjm.fit.converter.file/KFitFileToDataClassHandler/KFitFileToDataClassHandler/#/PointingToDeclaration/kotlin-fit-converter-lib/kjm.fit.converter.file/-k-fit-file-to-data-class-handler/-k-fit-file-to-data-class-handler.html
+$dokka.location:kjm.fit.converter.file/KFitFileToDataClassHandler/convert/#kotlin.String#kotlin.Boolean#java.io.InputStream/PointingToDeclaration/kotlin-fit-converter-lib/kjm.fit.converter.file/-k-fit-file-to-data-class-handler/convert.html
+$dokka.location:kjm.fit.converter.out.models////PointingToDeclaration/kotlin-fit-converter-lib/kjm.fit.converter.out.models/index.html
+$dokka.location:kjm.fit.converter.out.models/ActivityRecord///PointingToDeclaration/kotlin-fit-converter-lib/kjm.fit.converter.out.models/-activity-record/index.html
+$dokka.location:kjm.fit.converter.out.models/ActivityRecord/ActivityRecord/#kotlin.Double?#kotlin.Double?#kotlin.Double?#kjm.fit.converter.out.models.Location?#kotlin.Double?#kotlin.Double?#kotlin.Double?#kotlin.String/PointingToDeclaration/kotlin-fit-converter-lib/kjm.fit.converter.out.models/-activity-record/-activity-record.html
+$dokka.location:kjm.fit.converter.out.models/ActivityRecord/cadence/#/PointingToDeclaration/kotlin-fit-converter-lib/kjm.fit.converter.out.models/-activity-record/cadence.html
+$dokka.location:kjm.fit.converter.out.models/ActivityRecord/elevation/#/PointingToDeclaration/kotlin-fit-converter-lib/kjm.fit.converter.out.models/-activity-record/elevation.html
+$dokka.location:kjm.fit.converter.out.models/ActivityRecord/heartRate/#/PointingToDeclaration/kotlin-fit-converter-lib/kjm.fit.converter.out.models/-activity-record/heart-rate.html
+$dokka.location:kjm.fit.converter.out.models/ActivityRecord/location/#/PointingToDeclaration/kotlin-fit-converter-lib/kjm.fit.converter.out.models/-activity-record/location.html
+$dokka.location:kjm.fit.converter.out.models/ActivityRecord/power/#/PointingToDeclaration/kotlin-fit-converter-lib/kjm.fit.converter.out.models/-activity-record/power.html
+$dokka.location:kjm.fit.converter.out.models/ActivityRecord/speed/#/PointingToDeclaration/kotlin-fit-converter-lib/kjm.fit.converter.out.models/-activity-record/speed.html
+$dokka.location:kjm.fit.converter.out.models/ActivityRecord/temperature/#/PointingToDeclaration/kotlin-fit-converter-lib/kjm.fit.converter.out.models/-activity-record/temperature.html
+$dokka.location:kjm.fit.converter.out.models/ActivityRecord/timestamp/#/PointingToDeclaration/kotlin-fit-converter-lib/kjm.fit.converter.out.models/-activity-record/timestamp.html
+$dokka.location:kjm.fit.converter.out.models/FitEvent///PointingToDeclaration/kotlin-fit-converter-lib/kjm.fit.converter.out.models/-fit-event/index.html
+$dokka.location:kjm.fit.converter.out.models/FitEvent/FitEvent/#kotlin.String?#kotlin.Int?#kotlin.Int?/PointingToDeclaration/kotlin-fit-converter-lib/kjm.fit.converter.out.models/-fit-event/-fit-event.html
+$dokka.location:kjm.fit.converter.out.models/FitEvent/frontGearNum/#/PointingToDeclaration/kotlin-fit-converter-lib/kjm.fit.converter.out.models/-fit-event/front-gear-num.html
+$dokka.location:kjm.fit.converter.out.models/FitEvent/rearGearNum/#/PointingToDeclaration/kotlin-fit-converter-lib/kjm.fit.converter.out.models/-fit-event/rear-gear-num.html
+$dokka.location:kjm.fit.converter.out.models/FitEvent/timestamp/#/PointingToDeclaration/kotlin-fit-converter-lib/kjm.fit.converter.out.models/-fit-event/timestamp.html
+$dokka.location:kjm.fit.converter.out.models/FitFileData///PointingToDeclaration/kotlin-fit-converter-lib/kjm.fit.converter.out.models/-fit-file-data/index.html
+$dokka.location:kjm.fit.converter.out.models/FitFileData/FitFileData/#kotlin.String#kotlin.String#kotlin.String#kotlin.Double?#kotlin.Double?#kotlin.Double?#kotlin.Double?#kotlin.Double?#kotlin.Double?#kotlin.Double?#kotlin.Double?#kotlin.Double?#kotlin.Double?#kotlin.Double?#kotlin.Double?#kotlin.collections.Set[kjm.fit.converter.out.models.FitProduct]#kotlin.collections.Set[kjm.fit.converter.out.models.FitEvent]#kotlin.collections.Set[kjm.fit.converter.out.models.ActivityRecord]/PointingToDeclaration/kotlin-fit-converter-lib/kjm.fit.converter.out.models/-fit-file-data/-fit-file-data.html
+$dokka.location:kjm.fit.converter.out.models/FitFileData/activityName/#/PointingToDeclaration/kotlin-fit-converter-lib/kjm.fit.converter.out.models/-fit-file-data/activity-name.html
+$dokka.location:kjm.fit.converter.out.models/FitFileData/activityRecords/#/PointingToDeclaration/kotlin-fit-converter-lib/kjm.fit.converter.out.models/-fit-file-data/activity-records.html
+$dokka.location:kjm.fit.converter.out.models/FitFileData/activityStartDateTime/#/PointingToDeclaration/kotlin-fit-converter-lib/kjm.fit.converter.out.models/-fit-file-data/activity-start-date-time.html
+$dokka.location:kjm.fit.converter.out.models/FitFileData/averageCadence/#/PointingToDeclaration/kotlin-fit-converter-lib/kjm.fit.converter.out.models/-fit-file-data/average-cadence.html
+$dokka.location:kjm.fit.converter.out.models/FitFileData/averageCalories/#/PointingToDeclaration/kotlin-fit-converter-lib/kjm.fit.converter.out.models/-fit-file-data/average-calories.html
+$dokka.location:kjm.fit.converter.out.models/FitFileData/averageHR/#/PointingToDeclaration/kotlin-fit-converter-lib/kjm.fit.converter.out.models/-fit-file-data/average-h-r.html
+$dokka.location:kjm.fit.converter.out.models/FitFileData/averagePower/#/PointingToDeclaration/kotlin-fit-converter-lib/kjm.fit.converter.out.models/-fit-file-data/average-power.html
+$dokka.location:kjm.fit.converter.out.models/FitFileData/averageSpeed/#/PointingToDeclaration/kotlin-fit-converter-lib/kjm.fit.converter.out.models/-fit-file-data/average-speed.html
+$dokka.location:kjm.fit.converter.out.models/FitFileData/averageTemperature/#/PointingToDeclaration/kotlin-fit-converter-lib/kjm.fit.converter.out.models/-fit-file-data/average-temperature.html
+$dokka.location:kjm.fit.converter.out.models/FitFileData/events/#/PointingToDeclaration/kotlin-fit-converter-lib/kjm.fit.converter.out.models/-fit-file-data/events.html
+$dokka.location:kjm.fit.converter.out.models/FitFileData/maxHR/#/PointingToDeclaration/kotlin-fit-converter-lib/kjm.fit.converter.out.models/-fit-file-data/max-h-r.html
+$dokka.location:kjm.fit.converter.out.models/FitFileData/maxPower/#/PointingToDeclaration/kotlin-fit-converter-lib/kjm.fit.converter.out.models/-fit-file-data/max-power.html
+$dokka.location:kjm.fit.converter.out.models/FitFileData/maxSpeed/#/PointingToDeclaration/kotlin-fit-converter-lib/kjm.fit.converter.out.models/-fit-file-data/max-speed.html
+$dokka.location:kjm.fit.converter.out.models/FitFileData/productsUsed/#/PointingToDeclaration/kotlin-fit-converter-lib/kjm.fit.converter.out.models/-fit-file-data/products-used.html
+$dokka.location:kjm.fit.converter.out.models/FitFileData/sport/#/PointingToDeclaration/kotlin-fit-converter-lib/kjm.fit.converter.out.models/-fit-file-data/sport.html
+$dokka.location:kjm.fit.converter.out.models/FitFileData/totalAscent/#/PointingToDeclaration/kotlin-fit-converter-lib/kjm.fit.converter.out.models/-fit-file-data/total-ascent.html
+$dokka.location:kjm.fit.converter.out.models/FitFileData/totalDescent/#/PointingToDeclaration/kotlin-fit-converter-lib/kjm.fit.converter.out.models/-fit-file-data/total-descent.html
+$dokka.location:kjm.fit.converter.out.models/FitFileData/totalDistance/#/PointingToDeclaration/kotlin-fit-converter-lib/kjm.fit.converter.out.models/-fit-file-data/total-distance.html
+$dokka.location:kjm.fit.converter.out.models/FitProduct///PointingToDeclaration/kotlin-fit-converter-lib/kjm.fit.converter.out.models/-fit-product/index.html
+$dokka.location:kjm.fit.converter.out.models/FitProduct/FitProduct/#kotlin.String#kotlin.String?#kotlin.String/PointingToDeclaration/kotlin-fit-converter-lib/kjm.fit.converter.out.models/-fit-product/-fit-product.html
+$dokka.location:kjm.fit.converter.out.models/FitProduct/manufacturer/#/PointingToDeclaration/kotlin-fit-converter-lib/kjm.fit.converter.out.models/-fit-product/manufacturer.html
+$dokka.location:kjm.fit.converter.out.models/FitProduct/productDataConnection/#/PointingToDeclaration/kotlin-fit-converter-lib/kjm.fit.converter.out.models/-fit-product/product-data-connection.html
+$dokka.location:kjm.fit.converter.out.models/FitProduct/productName/#/PointingToDeclaration/kotlin-fit-converter-lib/kjm.fit.converter.out.models/-fit-product/product-name.html
+$dokka.location:kjm.fit.converter.out.models/Location///PointingToDeclaration/kotlin-fit-converter-lib/kjm.fit.converter.out.models/-location/index.html
+$dokka.location:kjm.fit.converter.out.models/Location/Location/#kotlin.Double#kotlin.Double#kotlin.Float?/PointingToDeclaration/kotlin-fit-converter-lib/kjm.fit.converter.out.models/-location/-location.html
+$dokka.location:kjm.fit.converter.out.models/Location/altitude/#/PointingToDeclaration/kotlin-fit-converter-lib/kjm.fit.converter.out.models/-location/altitude.html
+$dokka.location:kjm.fit.converter.out.models/Location/latitude/#/PointingToDeclaration/kotlin-fit-converter-lib/kjm.fit.converter.out.models/-location/latitude.html
+$dokka.location:kjm.fit.converter.out.models/Location/longitude/#/PointingToDeclaration/kotlin-fit-converter-lib/kjm.fit.converter.out.models/-location/longitude.html
+$dokka.location:kjm.fit.converter////PointingToDeclaration/kotlin-fit-converter-lib/kjm.fit.converter/index.html
+$dokka.location:kjm.fit.converter/KFitJsonHandler///PointingToDeclaration/kotlin-fit-converter-lib/kjm.fit.converter/-k-fit-json-handler/index.html
+$dokka.location:kjm.fit.converter/KFitJsonHandler/KFitJsonHandler/#/PointingToDeclaration/kotlin-fit-converter-lib/kjm.fit.converter/-k-fit-json-handler/-k-fit-json-handler.html
+$dokka.location:kjm.fit.converter/KFitJsonHandler/convertFitToJSON/#kotlin.String#kotlin.Boolean#java.io.InputStream/PointingToDeclaration/kotlin-fit-converter-lib/kjm.fit.converter/-k-fit-json-handler/convert-fit-to-j-s-o-n.html
+$dokka.location:kjm.fit.converter/KFitJsonHandler/convertJSONToFitData/#kotlin.String/PointingToDeclaration/kotlin-fit-converter-lib/kjm.fit.converter/-k-fit-json-handler/convert-j-s-o-n-to-fit-data.html
+$dokka.location:kjm.fit.converter/KFitProtobufHandler///PointingToDeclaration/kotlin-fit-converter-lib/kjm.fit.converter/-k-fit-protobuf-handler/index.html
+$dokka.location:kjm.fit.converter/KFitProtobufHandler/KFitProtobufHandler/#/PointingToDeclaration/kotlin-fit-converter-lib/kjm.fit.converter/-k-fit-protobuf-handler/-k-fit-protobuf-handler.html
+$dokka.location:kjm.fit.converter/KFitProtobufHandler/convertFitToProtobufByteArray/#kotlin.String#kotlin.Boolean#java.io.InputStream/PointingToDeclaration/kotlin-fit-converter-lib/kjm.fit.converter/-k-fit-protobuf-handler/convert-fit-to-protobuf-byte-array.html
+$dokka.location:kjm.fit.converter/KFitProtobufHandler/convertFitToProtobufHexString/#kotlin.String#kotlin.Boolean#java.io.InputStream/PointingToDeclaration/kotlin-fit-converter-lib/kjm.fit.converter/-k-fit-protobuf-handler/convert-fit-to-protobuf-hex-string.html
+$dokka.location:kjm.fit.converter/KFitProtobufHandler/convertProtobufByteArrayToFit/#kotlin.ByteArray/PointingToDeclaration/kotlin-fit-converter-lib/kjm.fit.converter/-k-fit-protobuf-handler/convert-protobuf-byte-array-to-fit.html
+$dokka.location:kjm.fit.converter/KFitProtobufHandler/convertProtobufHexToFit/#kotlin.String/PointingToDeclaration/kotlin-fit-converter-lib/kjm.fit.converter/-k-fit-protobuf-handler/convert-protobuf-hex-to-fit.html
+kjm.fit.converter
+kjm.fit.converter.converters
+kjm.fit.converter.file
+kjm.fit.converter.out.models
+

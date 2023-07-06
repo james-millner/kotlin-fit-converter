@@ -13,4 +13,4 @@ plugins {
 }
 
 rootProject.name = "kotlin-fit-converter"
-include("lib")
+include("kotlin-fit-converter-lib")
