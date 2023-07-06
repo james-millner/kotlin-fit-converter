@@ -15,6 +15,8 @@ plugins {
     // For my fat JAR needs
     id("com.github.johnrengelman.shadow") version "8.1.1"
 
+    id("com.adarshr.test-logger") version "3.2.0"
+
     // Apply the java-library plugin for API and implementation separation.
     `java-library`
     `maven-publish`
@@ -33,6 +35,7 @@ dependencies {
     implementation(files("../external-jar/fit.jar"))
 
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.3.0")
+    implementation("org.jetbrains.kotlinx:kotlinx-serialization-protobuf:1.3.0")
 
     // Use the Kotlin JUnit 5 integration.
     testImplementation("org.jetbrains.kotlin:kotlin-test-junit5")

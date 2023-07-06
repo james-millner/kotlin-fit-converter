@@ -1,19 +1,29 @@
 package kjm.fit.converter
 
-import org.junit.jupiter.api.Assertions.*
+import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
-import java.io.InputStream
 
 class KFitJsonHandlerTest {
 
-    private val fileUnderTest: InputStream? = this.javaClass.classLoader.getResourceAsStream("fitfiles/wahoo-fit-example.fit")
-    private val expectedJSON: InputStream? = this.javaClass.classLoader.getResourceAsStream("examples/wahoo-fit-example.json")
     private val kFitJsonHandler = KFitJsonHandler()
 
     @Test
     fun convertFitToJSON() {
-        val jsonString = kFitJsonHandler.convertFitToJSON("my-test-file", true, fileUnderTest!!)
-        val expectedJson = expectedJSON?.bufferedReader().use { it?.readText() }
+        val jsonString = kFitJsonHandler.convertFitToJSON("my-test-file", true, this.javaClass.classLoader.getResourceAsStream("fitfiles/tiny-fit-file.fit")!!)
+        val expectedJson = this.javaClass.classLoader.getResourceAsStream("examples/json/tiny-fit-file.json")?.bufferedReader().use { it?.readText() }
         assertEquals(expectedJson, jsonString)
+    }
+
+    @Test
+    fun convertFitToJSONBackToFit() {
+        val fileUnderTest = this.javaClass.classLoader.getResourceAsStream("fitfiles/tiny-fit-file.fit")
+        val copiedFileUnderTest = this.javaClass.classLoader.getResourceAsStream("fitfiles/tiny-fit-file.fit")
+
+        val expectedFitFile = KFitConverter().convert("my-test-file", true, fileUnderTest!!)
+
+        val jsonString = kFitJsonHandler.convertFitToJSON("my-test-file", true, copiedFileUnderTest!!)
+        val fitDataConversionBack = kFitJsonHandler.convertJSONToFitData(jsonString)
+
+        assertEquals(expectedFitFile, fitDataConversionBack)
     }
 }

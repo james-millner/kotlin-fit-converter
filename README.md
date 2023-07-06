@@ -19,7 +19,9 @@ The version of the Garmin FIT SDK used in this project is **21.115.00.**
 
 - Convert Garmin FIT files into JSON format.
 - Easy-to-use API for seamless integration into your Kotlin or Java applications.
-- Extensible architecture to support additional output formats in the future.
+- Currently is able to convert fit files into:
+  - JSON format.
+  - Protobuf format.
 
 ## Requirements
 

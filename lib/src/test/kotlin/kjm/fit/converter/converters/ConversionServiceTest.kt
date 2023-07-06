@@ -2,7 +2,8 @@ package kjm.fit.converter.converters
 
 import kjm.fit.converter.out.models.FitFileData
 import kjm.fit.converter.wrappers.FitDataWrapper
-import org.junit.jupiter.api.Assertions.*
+import org.junit.jupiter.api.Assertions.assertFalse
+import org.junit.jupiter.api.Assertions.assertTrue
 import org.junit.jupiter.api.Test
 
 class ConversionServiceTest {

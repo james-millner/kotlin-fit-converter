@@ -7,7 +7,7 @@ import kjm.fit.converter.out.models.Location
 internal class FitRecordMesgConverter: Converter<RecordMesg, ActivityRecord> {
     override fun convert(source: RecordMesg): ActivityRecord =
         ActivityRecord(
-            timestamp = source.timestamp.date.toString(),
+            timestamp = source.timestamp.date.toInstant().toString(),
             heartRate = source.heartRate?.toDouble(),
             cadence = source.cadence?.toDouble(),
             power = source.power?.toDouble(),
