@@ -1,6 +1,5 @@
 package kjm.fit.converter
 
-import kjm.fit.converter.file.KFitFileToDataClassHandler
 import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.Test
 
@@ -20,7 +19,7 @@ class KFitProtobufHandlerTest {
         val fileUnderTest = this.javaClass.classLoader.getResourceAsStream("fitfiles/tiny-fit-file.fit")
         val copiedFileUnderTest = this.javaClass.classLoader.getResourceAsStream("fitfiles/tiny-fit-file.fit")
 
-        val expectedFitFile = KFitFileToDataClassHandler().convert("my-test-file", true, fileUnderTest!!)
+        val expectedFitFile = KFitDataClassHandler().convert("my-test-file", true, fileUnderTest!!)
 
         val protoBuf = kFitProtobufHandler.convertFitToProtobufHexString("my-test-file", true, copiedFileUnderTest!!)
         val fitDataConversionBack = kFitProtobufHandler.convertProtobufHexToFit(protoBuf)
@@ -39,7 +38,7 @@ class KFitProtobufHandlerTest {
     @Test
     fun convertFitToProtobufByteArrayToFit() {
         val expectedProtoBuf = this.javaClass.classLoader.getResourceAsStream("examples/protobuf/tiny-fit-file-bytearray.protobuf").readBytes()
-        val expectedFitFile = KFitFileToDataClassHandler().convert("my-test-file", true, this.javaClass.classLoader.getResourceAsStream("fitfiles/tiny-fit-file.fit")!!)
+        val expectedFitFile = KFitDataClassHandler().convert("my-test-file", true, this.javaClass.classLoader.getResourceAsStream("fitfiles/tiny-fit-file.fit")!!)
 
         val protoBuf = kFitProtobufHandler.convertProtobufByteArrayToFit(expectedProtoBuf)
 

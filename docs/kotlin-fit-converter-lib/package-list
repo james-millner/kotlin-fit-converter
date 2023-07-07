@@ -8,10 +8,6 @@ $dokka.location:kjm.fit.converter.converters/ConversionService/canConvert/#java.
 $dokka.location:kjm.fit.converter.converters/ConversionService/convert/#TypeParam(bounds=[kotlin.Any?])#java.lang.Class[TypeParam(bounds=[kotlin.Any?])]/PointingToDeclaration/kotlin-fit-converter-lib/kjm.fit.converter.converters/-conversion-service/convert.html
 $dokka.location:kjm.fit.converter.converters/Converter///PointingToDeclaration/kotlin-fit-converter-lib/kjm.fit.converter.converters/-converter/index.html
 $dokka.location:kjm.fit.converter.converters/Converter/convert/#TypeParam(bounds=[kotlin.Any?])/PointingToDeclaration/kotlin-fit-converter-lib/kjm.fit.converter.converters/-converter/convert.html
-$dokka.location:kjm.fit.converter.file////PointingToDeclaration/kotlin-fit-converter-lib/kjm.fit.converter.file/index.html
-$dokka.location:kjm.fit.converter.file/KFitFileToDataClassHandler///PointingToDeclaration/kotlin-fit-converter-lib/kjm.fit.converter.file/-k-fit-file-to-data-class-handler/index.html
-$dokka.location:kjm.fit.converter.file/KFitFileToDataClassHandler/KFitFileToDataClassHandler/#/PointingToDeclaration/kotlin-fit-converter-lib/kjm.fit.converter.file/-k-fit-file-to-data-class-handler/-k-fit-file-to-data-class-handler.html
-$dokka.location:kjm.fit.converter.file/KFitFileToDataClassHandler/convert/#kotlin.String#kotlin.Boolean#java.io.InputStream/PointingToDeclaration/kotlin-fit-converter-lib/kjm.fit.converter.file/-k-fit-file-to-data-class-handler/convert.html
 $dokka.location:kjm.fit.converter.out.models////PointingToDeclaration/kotlin-fit-converter-lib/kjm.fit.converter.out.models/index.html
 $dokka.location:kjm.fit.converter.out.models/ActivityRecord///PointingToDeclaration/kotlin-fit-converter-lib/kjm.fit.converter.out.models/-activity-record/index.html
 $dokka.location:kjm.fit.converter.out.models/ActivityRecord/ActivityRecord/#kotlin.Double?#kotlin.Double?#kotlin.Double?#kjm.fit.converter.out.models.Location?#kotlin.Double?#kotlin.Double?#kotlin.Double?#kotlin.String/PointingToDeclaration/kotlin-fit-converter-lib/kjm.fit.converter.out.models/-activity-record/-activity-record.html
@@ -59,6 +55,9 @@ $dokka.location:kjm.fit.converter.out.models/Location/altitude/#/PointingToDecla
 $dokka.location:kjm.fit.converter.out.models/Location/latitude/#/PointingToDeclaration/kotlin-fit-converter-lib/kjm.fit.converter.out.models/-location/latitude.html
 $dokka.location:kjm.fit.converter.out.models/Location/longitude/#/PointingToDeclaration/kotlin-fit-converter-lib/kjm.fit.converter.out.models/-location/longitude.html
 $dokka.location:kjm.fit.converter////PointingToDeclaration/kotlin-fit-converter-lib/kjm.fit.converter/index.html
+$dokka.location:kjm.fit.converter/KFitDataClassHandler///PointingToDeclaration/kotlin-fit-converter-lib/kjm.fit.converter/-k-fit-data-class-handler/index.html
+$dokka.location:kjm.fit.converter/KFitDataClassHandler/KFitDataClassHandler/#/PointingToDeclaration/kotlin-fit-converter-lib/kjm.fit.converter/-k-fit-data-class-handler/-k-fit-data-class-handler.html
+$dokka.location:kjm.fit.converter/KFitDataClassHandler/convert/#kotlin.String#kotlin.Boolean#java.io.InputStream/PointingToDeclaration/kotlin-fit-converter-lib/kjm.fit.converter/-k-fit-data-class-handler/convert.html
 $dokka.location:kjm.fit.converter/KFitJsonHandler///PointingToDeclaration/kotlin-fit-converter-lib/kjm.fit.converter/-k-fit-json-handler/index.html
 $dokka.location:kjm.fit.converter/KFitJsonHandler/KFitJsonHandler/#/PointingToDeclaration/kotlin-fit-converter-lib/kjm.fit.converter/-k-fit-json-handler/-k-fit-json-handler.html
 $dokka.location:kjm.fit.converter/KFitJsonHandler/convertFitToJSON/#kotlin.String#kotlin.Boolean#java.io.InputStream/PointingToDeclaration/kotlin-fit-converter-lib/kjm.fit.converter/-k-fit-json-handler/convert-fit-to-j-s-o-n.html
@@ -71,6 +70,5 @@ $dokka.location:kjm.fit.converter/KFitProtobufHandler/convertProtobufByteArrayTo
 $dokka.location:kjm.fit.converter/KFitProtobufHandler/convertProtobufHexToFit/#kotlin.String/PointingToDeclaration/kotlin-fit-converter-lib/kjm.fit.converter/-k-fit-protobuf-handler/convert-protobuf-hex-to-fit.html
 kjm.fit.converter
 kjm.fit.converter.converters
-kjm.fit.converter.file
 kjm.fit.converter.out.models
 

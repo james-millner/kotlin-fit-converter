@@ -1,4 +1,4 @@
-package kjm.fit.converter.file
+package kjm.fit.converter
 
 import com.garmin.fit.FitMessages
 import kjm.fit.converter.converters.*
@@ -10,7 +10,22 @@ import kjm.fit.converter.wrappers.FitDataWrapper
 import java.io.IOException
 import java.io.InputStream
 
-class KFitFileToDataClassHandler {
+/**
+ * Handler for converting Fit Files into a FitFileData data class.
+ * @see FitFileData
+ * @see FitDataWrapper
+ * @see FitMessages
+ * @see FitEvent
+ * @see FitProduct
+ * @see ActivityRecord
+ * @see FitFileConverter
+ * @see FitEventMesgConverter
+ * @see FitProductConverter
+ * @see FitRecordMesgConverter
+ * @see FitDataWrapperConverter
+ * @see ConversionService
+ */
+class KFitDataClassHandler {
 
     private var conversionService: ConversionService = ConversionService()
 

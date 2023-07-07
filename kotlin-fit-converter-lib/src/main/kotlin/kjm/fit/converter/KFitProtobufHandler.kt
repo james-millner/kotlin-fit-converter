@@ -1,14 +1,23 @@
 package kjm.fit.converter
 
-import kjm.fit.converter.file.KFitFileToDataClassHandler
 import kjm.fit.converter.out.models.FitFileData
 import kotlinx.serialization.*
 import kotlinx.serialization.protobuf.ProtoBuf
 import java.io.InputStream
 
+/**
+ * Handles the conversion of FIT files to Protobuf and vice versa.
+ * @constructor Creates a new instance of KFitProtobufHandler.
+ * @property kFitDataClassHandler The KFitDataClassHandler instance to use.
+ * @see KFitDataClassHandler
+ * @see FitFileData
+ * @see ProtoBuf
+ * @see kotlinx.serialization
+ * @see kotlinx.serialization.protobuf
+ */
 class KFitProtobufHandler {
 
-    private val kFitFileToDataClassHandler = KFitFileToDataClassHandler()
+    private val kFitDataClassHandler = KFitDataClassHandler()
 
     /**
      * Converts a FIT file to a Protobuf hex string.
@@ -18,7 +27,7 @@ class KFitProtobufHandler {
      * @return The Protobuf hex string.
      */
     fun convertFitToProtobufHexString(fileName: String, metricSystem: Boolean, source: InputStream): String =
-        kFitFileToDataClassHandler.convert(fileName, metricSystem, source).let { fitData ->
+        kFitDataClassHandler.convert(fileName, metricSystem, source).let { fitData ->
             ProtoBuf.encodeToHexString(fitData)
         }
 
@@ -30,7 +39,7 @@ class KFitProtobufHandler {
      * @return The Protobuf byte array.
      */
     fun convertFitToProtobufByteArray(fileName: String, metricSystem: Boolean, source: InputStream): ByteArray =
-        kFitFileToDataClassHandler.convert(fileName, metricSystem, source).let { fitData ->
+        kFitDataClassHandler.convert(fileName, metricSystem, source).let { fitData ->
             ProtoBuf.encodeToByteArray(fitData)
         }
 

@@ -1,6 +1,5 @@
 package kjm.fit.converter
 
-import kjm.fit.converter.file.KFitFileToDataClassHandler
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
 
@@ -20,7 +19,7 @@ class KFitJsonHandlerTest {
         val fileUnderTest = this.javaClass.classLoader.getResourceAsStream("fitfiles/tiny-fit-file.fit")
         val copiedFileUnderTest = this.javaClass.classLoader.getResourceAsStream("fitfiles/tiny-fit-file.fit")
 
-        val expectedFitFile = KFitFileToDataClassHandler().convert("my-test-file", true, fileUnderTest!!)
+        val expectedFitFile = KFitDataClassHandler().convert("my-test-file", true, fileUnderTest!!)
 
         val jsonString = kFitJsonHandler.convertFitToJSON("my-test-file", true, copiedFileUnderTest!!)
         val fitDataConversionBack = kFitJsonHandler.convertJSONToFitData(jsonString)

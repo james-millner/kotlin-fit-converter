@@ -1,14 +1,23 @@
 package kjm.fit.converter
 
-import kjm.fit.converter.file.KFitFileToDataClassHandler
 import kjm.fit.converter.out.models.FitFileData
 import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.json.Json
 import java.io.InputStream
 
+/**
+ * Handles the conversion of FIT files to JSON and vice versa.
+ * @constructor Creates a new instance of KFitJsonHandler.
+ * @property kFitDataClassHandler The KFitDataClassHandler instance to use.
+ * @see KFitDataClassHandler
+ * @see FitFileData
+ * @see Json
+ * @see kotlinx.serialization
+ * @see kotlinx.serialization.json
+ */
 class KFitJsonHandler {
 
-    private val kFitFileToDataClassHandler = KFitFileToDataClassHandler()
+    private val kFitDataClassHandler = KFitDataClassHandler()
 
     /**
      * Converts a FIT file to a JSON string.
@@ -19,7 +28,7 @@ class KFitJsonHandler {
      */
     fun convertFitToJSON(fileName: String, metricSystem: Boolean, source: InputStream): String {
 
-        val fitData = kFitFileToDataClassHandler.convert(fileName, metricSystem, source)
+        val fitData = kFitDataClassHandler.convert(fileName, metricSystem, source)
         return Json.encodeToString(FitFileData.serializer(), fitData)
     }
 

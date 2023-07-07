@@ -39,8 +39,8 @@ repositories {
 dependencies {
     implementation(files("../external-jar/fit.jar"))
 
-    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.3.0")
-    implementation("org.jetbrains.kotlinx:kotlinx-serialization-protobuf:1.3.0")
+    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.5.1")
+    implementation("org.jetbrains.kotlinx:kotlinx-serialization-protobuf:1.5.1")
 
     // Use the Kotlin JUnit 5 integration.
     testImplementation("org.jetbrains.kotlin:kotlin-test-junit5")
