@@ -3,7 +3,8 @@ package kjm.fit.converter.out.models
 import kotlinx.serialization.Serializable
 
 /**
- * A data class representing the entire FIT file.
+ * A data class representing the entire FIT file. This is an opinionated view on interesting data points and is subject to change.
+ * It's an effort to collate as much valuable data from as many activity types as possible. Initially though this has scope for cycling and running primarily.
  * @param activityName The name of the activity.
  * @param activityStartDateTime The start date and time of the activity.
  * @param sport The sport of the activity.

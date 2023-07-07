@@ -7,7 +7,7 @@ import java.lang.reflect.ParameterizedType
  * @see <a href="https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/core/convert/ConversionService.html">Spring ConversionService</a>
  */
 class ConversionService {
-    protected val converters: MutableList<Converter<*, *>> = mutableListOf()
+    protected val converters: MutableSet<Converter<*, *>> = mutableSetOf()
 
     fun <S, T> addConverter(converter: Converter<S, T>) {
         converters.add(converter)

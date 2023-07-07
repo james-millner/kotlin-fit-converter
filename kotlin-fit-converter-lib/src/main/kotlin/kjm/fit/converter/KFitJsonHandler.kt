@@ -1,7 +1,6 @@
 package kjm.fit.converter
 
 import kjm.fit.converter.out.models.FitFileData
-import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.json.Json
 import java.io.InputStream
 

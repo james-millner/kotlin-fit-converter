@@ -1,7 +1,10 @@
 package kjm.fit.converter
 
 import kjm.fit.converter.out.models.FitFileData
-import kotlinx.serialization.*
+import kotlinx.serialization.decodeFromByteArray
+import kotlinx.serialization.decodeFromHexString
+import kotlinx.serialization.encodeToByteArray
+import kotlinx.serialization.encodeToHexString
 import kotlinx.serialization.protobuf.ProtoBuf
 import java.io.InputStream
 
