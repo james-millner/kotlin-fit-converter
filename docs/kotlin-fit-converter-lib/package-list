@@ -27,7 +27,7 @@ $dokka.location:kjm.fit.converter.out.models/FitEvent/frontGearNum/#/PointingToD
 $dokka.location:kjm.fit.converter.out.models/FitEvent/rearGearNum/#/PointingToDeclaration/kotlin-fit-converter-lib/kjm.fit.converter.out.models/-fit-event/rear-gear-num.html
 $dokka.location:kjm.fit.converter.out.models/FitEvent/timestamp/#/PointingToDeclaration/kotlin-fit-converter-lib/kjm.fit.converter.out.models/-fit-event/timestamp.html
 $dokka.location:kjm.fit.converter.out.models/FitFileData///PointingToDeclaration/kotlin-fit-converter-lib/kjm.fit.converter.out.models/-fit-file-data/index.html
-$dokka.location:kjm.fit.converter.out.models/FitFileData/FitFileData/#kotlin.String#kotlin.String#kotlin.String#kotlin.Double?#kotlin.Double?#kotlin.Double?#kotlin.Double?#kotlin.Double?#kotlin.Double?#kotlin.Double?#kotlin.Double?#kotlin.Double?#kotlin.Double?#kotlin.Double?#kotlin.Double?#kotlin.collections.Set[kjm.fit.converter.out.models.FitProduct]#kotlin.collections.Set[kjm.fit.converter.out.models.FitEvent]#kotlin.collections.Set[kjm.fit.converter.out.models.ActivityRecord]/PointingToDeclaration/kotlin-fit-converter-lib/kjm.fit.converter.out.models/-fit-file-data/-fit-file-data.html
+$dokka.location:kjm.fit.converter.out.models/FitFileData/FitFileData/#kotlin.String#kotlin.String#kotlin.String#kotlin.Double?#kotlin.Double?#kotlin.Double?#kotlin.Double?#kotlin.Double?#kotlin.Double?#kotlin.Double?#kotlin.Double?#kotlin.Double?#kotlin.Int?#kotlin.Int?#kotlin.Double?#kotlin.collections.Set[kjm.fit.converter.out.models.FitProduct]#kotlin.collections.Set[kjm.fit.converter.out.models.FitEvent]#kotlin.collections.Set[kjm.fit.converter.out.models.ActivityRecord]/PointingToDeclaration/kotlin-fit-converter-lib/kjm.fit.converter.out.models/-fit-file-data/-fit-file-data.html
 $dokka.location:kjm.fit.converter.out.models/FitFileData/activityName/#/PointingToDeclaration/kotlin-fit-converter-lib/kjm.fit.converter.out.models/-fit-file-data/activity-name.html
 $dokka.location:kjm.fit.converter.out.models/FitFileData/activityRecords/#/PointingToDeclaration/kotlin-fit-converter-lib/kjm.fit.converter.out.models/-fit-file-data/activity-records.html
 $dokka.location:kjm.fit.converter.out.models/FitFileData/activityStartDateTime/#/PointingToDeclaration/kotlin-fit-converter-lib/kjm.fit.converter.out.models/-fit-file-data/activity-start-date-time.html
@@ -56,6 +56,18 @@ $dokka.location:kjm.fit.converter.out.models/Location/Location/#kotlin.Double#ko
 $dokka.location:kjm.fit.converter.out.models/Location/altitude/#/PointingToDeclaration/kotlin-fit-converter-lib/kjm.fit.converter.out.models/-location/altitude.html
 $dokka.location:kjm.fit.converter.out.models/Location/latitude/#/PointingToDeclaration/kotlin-fit-converter-lib/kjm.fit.converter.out.models/-location/latitude.html
 $dokka.location:kjm.fit.converter.out.models/Location/longitude/#/PointingToDeclaration/kotlin-fit-converter-lib/kjm.fit.converter.out.models/-location/longitude.html
+$dokka.location:kjm.fit.converter.utils////PointingToDeclaration/kotlin-fit-converter-lib/kjm.fit.converter.utils/index.html
+$dokka.location:kjm.fit.converter.utils/MeasurementUnit.IMPERIAL///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}kotlin-fit-converter-lib/kjm.fit.converter.utils/-measurement-unit/-i-m-p-e-r-i-a-l/index.html
+$dokka.location:kjm.fit.converter.utils/MeasurementUnit.METRIC///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}kotlin-fit-converter-lib/kjm.fit.converter.utils/-measurement-unit/-m-e-t-r-i-c/index.html
+$dokka.location:kjm.fit.converter.utils/MeasurementUnit///PointingToDeclaration/kotlin-fit-converter-lib/kjm.fit.converter.utils/-measurement-unit/index.html
+$dokka.location:kjm.fit.converter.utils/MeasurementUnit/valueOf/#kotlin.String/PointingToDeclaration/kotlin-fit-converter-lib/kjm.fit.converter.utils/-measurement-unit/value-of.html
+$dokka.location:kjm.fit.converter.utils/MeasurementUnit/values/#/PointingToDeclaration/kotlin-fit-converter-lib/kjm.fit.converter.utils/-measurement-unit/values.html
+$dokka.location:kjm.fit.converter.utils/MeasurementUtils///PointingToDeclaration/kotlin-fit-converter-lib/kjm.fit.converter.utils/-measurement-utils/index.html
+$dokka.location:kjm.fit.converter.utils/MeasurementUtils/MeasurementUtils/#/PointingToDeclaration/kotlin-fit-converter-lib/kjm.fit.converter.utils/-measurement-utils/-measurement-utils.html
+$dokka.location:kjm.fit.converter.utils/MeasurementUtils/distanceInRequestedUnit/#kotlin.Float#kjm.fit.converter.utils.MeasurementUnit/PointingToDeclaration/kotlin-fit-converter-lib/kjm.fit.converter.utils/-measurement-utils/distance-in-requested-unit.html
+$dokka.location:kjm.fit.converter.utils/MeasurementUtils/durationInRequestedUnit/#kotlin.Float#kjm.fit.converter.utils.MeasurementUnit/PointingToDeclaration/kotlin-fit-converter-lib/kjm.fit.converter.utils/-measurement-utils/duration-in-requested-unit.html
+$dokka.location:kjm.fit.converter.utils/MeasurementUtils/elevationInRequestedUnit/#kotlin.Int#kjm.fit.converter.utils.MeasurementUnit/PointingToDeclaration/kotlin-fit-converter-lib/kjm.fit.converter.utils/-measurement-utils/elevation-in-requested-unit.html
+$dokka.location:kjm.fit.converter.utils/MeasurementUtils/temperatureInRequestedUnit/#kotlin.Double#kjm.fit.converter.utils.MeasurementUnit/PointingToDeclaration/kotlin-fit-converter-lib/kjm.fit.converter.utils/-measurement-utils/temperature-in-requested-unit.html
 $dokka.location:kjm.fit.converter////PointingToDeclaration/kotlin-fit-converter-lib/kjm.fit.converter/index.html
 $dokka.location:kjm.fit.converter/KFitDataClassHandler///PointingToDeclaration/kotlin-fit-converter-lib/kjm.fit.converter/-k-fit-data-class-handler/index.html
 $dokka.location:kjm.fit.converter/KFitDataClassHandler/KFitDataClassHandler/#/PointingToDeclaration/kotlin-fit-converter-lib/kjm.fit.converter/-k-fit-data-class-handler/-k-fit-data-class-handler.html
@@ -73,4 +85,5 @@ $dokka.location:kjm.fit.converter/KFitProtobufHandler/convertProtobufHexToFit/#k
 kjm.fit.converter
 kjm.fit.converter.converters
 kjm.fit.converter.out.models
+kjm.fit.converter.utils
 

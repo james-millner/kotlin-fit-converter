@@ -6,9 +6,11 @@ import kjm.fit.converter.out.models.ActivityRecord
 import kjm.fit.converter.out.models.FitEvent
 import kjm.fit.converter.out.models.FitFileData
 import kjm.fit.converter.out.models.FitProduct
+import kjm.fit.converter.utils.MeasurementUnit
 import kjm.fit.converter.wrappers.FitDataWrapper
 import java.io.IOException
 import java.io.InputStream
+import java.lang.Exception
 
 /**
  * Handler for converting Fit Files into a FitFileData data class.
@@ -50,7 +52,7 @@ class KFitDataClassHandler {
         val fitMessages = conversionService.convert(source, FitMessages::class.java)
             ?: throw IOException("Unable to convert file to FitMessages. Please check the input file location.")
 
-        val session = fitMessages.sessionMesgs.firstOrNull()
+        val session = fitMessages.sessionMesgs.first() ?: throw Exception("No session message found in file.")
         val events =
             fitMessages.eventMesgs?.mapNotNull { conversionService.convert(it, FitEvent::class.java) }?.toSet() ?: emptySet()
         val products = fitMessages.deviceInfoMesgs.mapNotNull { conversionService.convert(it, FitProduct::class.java) }
@@ -60,7 +62,7 @@ class KFitDataClassHandler {
 
         val fitDataWrapper = FitDataWrapper(
             fitFileName = fileName,
-            metricSystem = if(metricSystem) "metric" else "imperial",
+            metricSystem = if(metricSystem) MeasurementUnit.METRIC else MeasurementUnit.IMPERIAL,
             session = session,
             events = events,
             products = products,

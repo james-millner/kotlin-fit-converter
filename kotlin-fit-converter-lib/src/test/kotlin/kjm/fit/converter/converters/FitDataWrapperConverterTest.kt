@@ -5,6 +5,7 @@ import kjm.fit.converter.out.models.ActivityRecord
 import kjm.fit.converter.out.models.FitEvent
 import kjm.fit.converter.out.models.FitFileData
 import kjm.fit.converter.out.models.FitProduct
+import kjm.fit.converter.utils.MeasurementUnit
 import kjm.fit.converter.wrappers.FitDataWrapper
 import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.BeforeAll
@@ -42,7 +43,7 @@ class FitDataWrapperConverterTest {
 
         fitDataWrapper = FitDataWrapper(
             fitFileName = "FileName",
-            metricSystem = "metric",
+            metricSystem = MeasurementUnit.METRIC,
             session = session,
             events = events,
             products = products,
@@ -62,6 +63,6 @@ class FitDataWrapperConverterTest {
         assertEquals("FileName", fitFileData!!.activityName)
         assertEquals("CYCLING", fitFileData.sport)
         assertEquals(3550.0, fitFileData.averageCalories)
-        assertEquals(8.510400295257568, fitFileData.averageSpeed)
+        assertEquals(8.6, fitFileData.averageSpeed)
     }
 }

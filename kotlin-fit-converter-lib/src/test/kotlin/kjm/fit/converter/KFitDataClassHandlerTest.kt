@@ -15,6 +15,7 @@ class KFitDataClassHandlerTest {
         val fitData = kFitDataClassHandler.convertToDataClass("my-test-file", true, fileUnderTest!!)
         assertNotNull(fitData)
         assertEquals(20, fitData.events.size)
+        assertEquals(38.35, fitData.totalDistance)
         assertEquals(3, fitData.productsUsed.size)
         assertEquals(16222, fitData.activityRecords.size)
     }

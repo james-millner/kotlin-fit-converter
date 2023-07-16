@@ -29,7 +29,7 @@ plugins {
 }
 
 group = "kjm.fit.converter"
-version = "0.2.0-alpha"
+version = "0.2.1-alpha"
 
 repositories {
     // Use Maven Central for resolving dependencies.
@@ -46,7 +46,8 @@ dependencies {
     testImplementation("org.jetbrains.kotlin:kotlin-test-junit5")
 
     // Use the JUnit 5 integration.
-    testImplementation("org.junit.jupiter:junit-jupiter-engine:5.9.1")
+    testImplementation("org.junit.jupiter:junit-jupiter-engine:5.9.3")
+    testImplementation("org.junit.jupiter:junit-jupiter-params:5.9.3")
 
     // This dependency is exported to consumers, that is to say found on their compile classpath.
     api("org.apache.commons:commons-math3:3.6.1")
