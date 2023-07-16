@@ -10,8 +10,8 @@ import com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar
 
 plugins {
     // Apply the org.jetbrains.kotlin.jvm Plugin to add support for Kotlin.
-    id("org.jetbrains.kotlin.jvm") version "1.8.22"
-    id ("org.jetbrains.kotlin.plugin.serialization") version "1.8.22"
+    id("org.jetbrains.kotlin.jvm") version "1.9.0"
+    id ("org.jetbrains.kotlin.plugin.serialization") version "1.9.0"
 
     // For my fat JAR needs
     id("com.github.johnrengelman.shadow") version "8.1.1"
@@ -29,7 +29,7 @@ plugins {
 }
 
 group = "kjm.fit.converter"
-version = "0.2.1-alpha"
+version = "0.2.2-alpha"
 
 repositories {
     // Use Maven Central for resolving dependencies.
