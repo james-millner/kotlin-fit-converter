@@ -20,7 +20,9 @@ $dokka.location:kjm.fit.converter.out.models/ActivityRecord/speed/#/PointingToDe
 $dokka.location:kjm.fit.converter.out.models/ActivityRecord/temperature/#/PointingToDeclaration/kotlin-fit-converter-lib/kjm.fit.converter.out.models/-activity-record/temperature.html
 $dokka.location:kjm.fit.converter.out.models/ActivityRecord/timestamp/#/PointingToDeclaration/kotlin-fit-converter-lib/kjm.fit.converter.out.models/-activity-record/timestamp.html
 $dokka.location:kjm.fit.converter.out.models/FitEvent///PointingToDeclaration/kotlin-fit-converter-lib/kjm.fit.converter.out.models/-fit-event/index.html
-$dokka.location:kjm.fit.converter.out.models/FitEvent/FitEvent/#kotlin.String?#kotlin.Int?#kotlin.Int?/PointingToDeclaration/kotlin-fit-converter-lib/kjm.fit.converter.out.models/-fit-event/-fit-event.html
+$dokka.location:kjm.fit.converter.out.models/FitEvent/FitEvent/#kotlin.String?#kotlin.String?#kotlin.String#kotlin.Int?#kotlin.Int?/PointingToDeclaration/kotlin-fit-converter-lib/kjm.fit.converter.out.models/-fit-event/-fit-event.html
+$dokka.location:kjm.fit.converter.out.models/FitEvent/eventName/#/PointingToDeclaration/kotlin-fit-converter-lib/kjm.fit.converter.out.models/-fit-event/event-name.html
+$dokka.location:kjm.fit.converter.out.models/FitEvent/eventType/#/PointingToDeclaration/kotlin-fit-converter-lib/kjm.fit.converter.out.models/-fit-event/event-type.html
 $dokka.location:kjm.fit.converter.out.models/FitEvent/frontGearNum/#/PointingToDeclaration/kotlin-fit-converter-lib/kjm.fit.converter.out.models/-fit-event/front-gear-num.html
 $dokka.location:kjm.fit.converter.out.models/FitEvent/rearGearNum/#/PointingToDeclaration/kotlin-fit-converter-lib/kjm.fit.converter.out.models/-fit-event/rear-gear-num.html
 $dokka.location:kjm.fit.converter.out.models/FitEvent/timestamp/#/PointingToDeclaration/kotlin-fit-converter-lib/kjm.fit.converter.out.models/-fit-event/timestamp.html
@@ -57,7 +59,7 @@ $dokka.location:kjm.fit.converter.out.models/Location/longitude/#/PointingToDecl
 $dokka.location:kjm.fit.converter////PointingToDeclaration/kotlin-fit-converter-lib/kjm.fit.converter/index.html
 $dokka.location:kjm.fit.converter/KFitDataClassHandler///PointingToDeclaration/kotlin-fit-converter-lib/kjm.fit.converter/-k-fit-data-class-handler/index.html
 $dokka.location:kjm.fit.converter/KFitDataClassHandler/KFitDataClassHandler/#/PointingToDeclaration/kotlin-fit-converter-lib/kjm.fit.converter/-k-fit-data-class-handler/-k-fit-data-class-handler.html
-$dokka.location:kjm.fit.converter/KFitDataClassHandler/convert/#kotlin.String#kotlin.Boolean#java.io.InputStream/PointingToDeclaration/kotlin-fit-converter-lib/kjm.fit.converter/-k-fit-data-class-handler/convert.html
+$dokka.location:kjm.fit.converter/KFitDataClassHandler/convertToDataClass/#kotlin.String#kotlin.Boolean#java.io.InputStream/PointingToDeclaration/kotlin-fit-converter-lib/kjm.fit.converter/-k-fit-data-class-handler/convert-to-data-class.html
 $dokka.location:kjm.fit.converter/KFitJsonHandler///PointingToDeclaration/kotlin-fit-converter-lib/kjm.fit.converter/-k-fit-json-handler/index.html
 $dokka.location:kjm.fit.converter/KFitJsonHandler/KFitJsonHandler/#/PointingToDeclaration/kotlin-fit-converter-lib/kjm.fit.converter/-k-fit-json-handler/-k-fit-json-handler.html
 $dokka.location:kjm.fit.converter/KFitJsonHandler/convertFitToJSON/#kotlin.String#kotlin.Boolean#java.io.InputStream/PointingToDeclaration/kotlin-fit-converter-lib/kjm.fit.converter/-k-fit-json-handler/convert-fit-to-j-s-o-n.html

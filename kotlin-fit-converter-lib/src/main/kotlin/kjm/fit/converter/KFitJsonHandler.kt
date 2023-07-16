@@ -16,19 +16,23 @@ import java.io.InputStream
  */
 class KFitJsonHandler {
 
+    private val json = Json {
+        ignoreUnknownKeys = true
+        explicitNulls = false
+    }
     private val kFitDataClassHandler = KFitDataClassHandler()
 
     /**
      * Converts a FIT file to a JSON string.
      * @param fileName The name of the file being converted.
-     * @param metricSystem Whether the file is in metric or imperial units.
+     * @param metricSystem Whether to use the metric or imperial system for metrics.
      * @param source The FIT file to convert.
      * @return The JSON string.
      */
     fun convertFitToJSON(fileName: String, metricSystem: Boolean, source: InputStream): String {
 
-        val fitData = kFitDataClassHandler.convert(fileName, metricSystem, source)
-        return Json.encodeToString(FitFileData.serializer(), fitData)
+        val fitData = kFitDataClassHandler.convertToDataClass(fileName, metricSystem, source)
+        return json.encodeToString(FitFileData.serializer(), fitData)
     }
 
     /**
@@ -37,6 +41,6 @@ class KFitJsonHandler {
      * @return The FIT file data class.
      */
     fun convertJSONToFitData(jsonString: String): FitFileData {
-        return Json.decodeFromString<FitFileData>(jsonString)
+        return json.decodeFromString<FitFileData>(jsonString)
     }
 }

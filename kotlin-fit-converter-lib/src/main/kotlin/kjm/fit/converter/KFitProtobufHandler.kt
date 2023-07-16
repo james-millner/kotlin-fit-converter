@@ -25,24 +25,24 @@ class KFitProtobufHandler {
     /**
      * Converts a FIT file to a Protobuf hex string.
      * @param fileName The name of the file being converted.
-     * @param metricSystem Whether the file is in metric or imperial units.
+     * @param metricSystem Whether to use the metric or imperial system for metrics
      * @param source The FIT file to convert.
      * @return The Protobuf hex string.
      */
     fun convertFitToProtobufHexString(fileName: String, metricSystem: Boolean, source: InputStream): String =
-        kFitDataClassHandler.convert(fileName, metricSystem, source).let { fitData ->
+        kFitDataClassHandler.convertToDataClass(fileName, metricSystem, source).let { fitData ->
             ProtoBuf.encodeToHexString(fitData)
         }
 
     /**
      * Converts a FIT file to a Protobuf byte array.
      * @param fileName The name of the file being converted.
-     * @param metricSystem Whether the file is in metric or imperial units.
+     * @param metricSystem Whether to use the metric or imperial system for metrics
      * @param source The FIT file to convert.
      * @return The Protobuf byte array.
      */
     fun convertFitToProtobufByteArray(fileName: String, metricSystem: Boolean, source: InputStream): ByteArray =
-        kFitDataClassHandler.convert(fileName, metricSystem, source).let { fitData ->
+        kFitDataClassHandler.convertToDataClass(fileName, metricSystem, source).let { fitData ->
             ProtoBuf.encodeToByteArray(fitData)
         }
 

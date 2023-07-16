@@ -37,7 +37,15 @@ class KFitDataClassHandler {
         conversionService.addConverter(FitProductConverter())
     }
 
-    fun convert(fileName: String, metricSystem: Boolean, source: InputStream): FitFileData {
+    /**
+     * Converts a FIT file to a FitFileData data class.
+     * @param fileName The name of the file being converted.
+     * @param metricSystem Whether to use the metric or imperial system for metrics.
+     * @param source The FIT file to convert.
+     * @return The FitFileData data class.
+     * @throws IOException If the file cannot be converted.
+     */
+    fun convertToDataClass(fileName: String, metricSystem: Boolean, source: InputStream): FitFileData {
 
         val fitMessages = conversionService.convert(source, FitMessages::class.java)
             ?: throw IOException("Unable to convert file to FitMessages. Please check the input file location.")

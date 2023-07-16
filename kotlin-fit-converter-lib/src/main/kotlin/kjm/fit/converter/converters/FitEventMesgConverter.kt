@@ -12,7 +12,9 @@ internal class FitEventMesgConverter: Converter<EventMesg, FitEvent> {
     override fun convert(source: EventMesg): FitEvent =
         FitEvent(
             timestamp = source.timestamp.date.toInstant().toString(),
-            frontGearNum = source.frontGearNum?.toInt() ?: 0,
-            rearGearNum = source.rearGearNum?.toInt() ?: 0,
+            eventType = source.eventType?.toString(),
+            eventName = source.event.name,
+            frontGearNum = source.frontGearNum?.toInt(),
+            rearGearNum = source.rearGearNum?.toInt(),
         )
 }
