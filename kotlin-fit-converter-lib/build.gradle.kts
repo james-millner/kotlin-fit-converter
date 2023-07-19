@@ -29,7 +29,7 @@ plugins {
 }
 
 group = "kjm.fit.converter"
-version = "0.2.2-alpha"
+version = "0.2.3-alpha"
 
 repositories {
     // Use Maven Central for resolving dependencies.
@@ -48,12 +48,6 @@ dependencies {
     // Use the JUnit 5 integration.
     testImplementation("org.junit.jupiter:junit-jupiter-engine:5.9.3")
     testImplementation("org.junit.jupiter:junit-jupiter-params:5.9.3")
-
-    // This dependency is exported to consumers, that is to say found on their compile classpath.
-    api("org.apache.commons:commons-math3:3.6.1")
-
-    // This dependency is used internally, and not exposed to consumers on their own compile classpath.
-    implementation("com.google.guava:guava:31.1-jre")
 }
 
 // Apply a specific Java toolchain to ease working on different environments.

@@ -10,10 +10,10 @@ import kjm.fit.converter.utils.MeasurementUnit
 import kjm.fit.converter.wrappers.FitDataWrapper
 import java.io.IOException
 import java.io.InputStream
-import java.lang.Exception
 
 /**
  * Handler for converting Fit Files into a FitFileData data class.
+ * @constructor Creates a new instance of KFitDataClassHandler.
  * @see FitFileData
  * @see FitDataWrapper
  * @see FitMessages
@@ -42,9 +42,10 @@ class KFitDataClassHandler {
     /**
      * Converts a FIT file to a FitFileData data class.
      * @param fileName The name of the file being converted.
-     * @param metricSystem Whether to use the metric or imperial system for metrics.
-     * @param source The FIT file to convert.
+     * @param metricSystem Whether to use the metric or imperial system for metrics. MeasurementUtils is used to determine this.
+     * @param source The FIT file to convert as an InputStream.
      * @return The FitFileData data class.
+     * @see FitFileData
      * @throws IOException If the file cannot be converted.
      */
     fun convertToDataClass(fileName: String, metricSystem: Boolean, source: InputStream): FitFileData {

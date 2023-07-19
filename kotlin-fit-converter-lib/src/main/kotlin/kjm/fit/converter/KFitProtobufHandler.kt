@@ -1,10 +1,7 @@
 package kjm.fit.converter
 
 import kjm.fit.converter.out.models.FitFileData
-import kotlinx.serialization.decodeFromByteArray
-import kotlinx.serialization.decodeFromHexString
-import kotlinx.serialization.encodeToByteArray
-import kotlinx.serialization.encodeToHexString
+import kotlinx.serialization.*
 import kotlinx.serialization.protobuf.ProtoBuf
 import java.io.InputStream
 
@@ -18,6 +15,7 @@ import java.io.InputStream
  * @see kotlinx.serialization
  * @see kotlinx.serialization.protobuf
  */
+@ExperimentalSerializationApi
 class KFitProtobufHandler {
 
     private val kFitDataClassHandler = KFitDataClassHandler()
@@ -25,8 +23,8 @@ class KFitProtobufHandler {
     /**
      * Converts a FIT file to a Protobuf hex string.
      * @param fileName The name of the file being converted.
-     * @param metricSystem Whether to use the metric or imperial system for metrics
-     * @param source The FIT file to convert.
+     * @param metricSystem Whether to use the metric or imperial system for metrics. MeasurementUtils is used to determine this.
+     * @param source The FIT file to convert as an InputStream.
      * @return The Protobuf hex string.
      */
     fun convertFitToProtobufHexString(fileName: String, metricSystem: Boolean, source: InputStream): String =
@@ -37,8 +35,8 @@ class KFitProtobufHandler {
     /**
      * Converts a FIT file to a Protobuf byte array.
      * @param fileName The name of the file being converted.
-     * @param metricSystem Whether to use the metric or imperial system for metrics
-     * @param source The FIT file to convert.
+     * @param metricSystem Whether to use the metric or imperial system for metrics. MeasurementUtils is used to determine this.
+     * @param source The FIT file to convert as an InputStream.
      * @return The Protobuf byte array.
      */
     fun convertFitToProtobufByteArray(fileName: String, metricSystem: Boolean, source: InputStream): ByteArray =

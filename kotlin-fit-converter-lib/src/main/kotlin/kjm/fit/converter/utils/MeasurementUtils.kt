@@ -13,7 +13,9 @@ enum class MeasurementUnit {
 }
 
 /**
- * Utility class to convert between metric and imperial units
+ * Utility class to convert between metric and imperial units mostly.
+ * Combines the default values from Garmin which are typically in metric, and converts them to imperial if requested.
+ * @see MeasurementUtils
  * @see MeasurementUnit
  * @see ceil
  * @see kotlin.math
@@ -30,8 +32,8 @@ class MeasurementUtils {
 
     /**
      * Converts the given meters per second to the requested unit
-     * @param metersPerSecond The meters per second to convert
-     * @param requestedUnit The unit to convert to
+     * @param metersPerSecond The meters per second to convert originally provided from Garmin FIT
+     * @param requestedUnit Allows passing IMPERIAL to convert to miles per hour, or METRIC to get kilometers per hour.
      * @return The converted value
      */
     fun durationInRequestedUnit(metersPerSecond: Float, requestedUnit: MeasurementUnit): Double {
@@ -43,8 +45,8 @@ class MeasurementUtils {
 
     /**
      * Converts the given meters per second to the requested unit
-     * @param meters The meters to convert
-     * @param requestedUnit The unit to convert to
+     * @param meters The meters to convert originally provided from Garmin FIT
+     * @param requestedUnit Allows passing IMPERIAL to convert to miles, or METRIC to keep the value as is.
      * @return The converted value
      */
     fun distanceInRequestedUnit(meters: Float, requestedUnit: MeasurementUnit): Double {
@@ -56,8 +58,8 @@ class MeasurementUtils {
 
     /**
      * Converts the given meters value to the requested unit
-     * @param meters The meters to convert
-     * @param requestedUnit The unit to convert to
+     * @param meters The meters to convert originally provided from Garmin FIT
+     * @param requestedUnit Allows passing IMPERIAL to convert to feet, or METRIC to keep the value as is.
      * @return The converted value
      */
     fun elevationInRequestedUnit(meters: Int, requestedUnit: MeasurementUnit): Int {
@@ -69,8 +71,8 @@ class MeasurementUtils {
 
     /**
      * Converts the given temperature value to the requested unit
-     * @param temperature The temperature to convert in Celsius
-     * @param requestedUnit The unit to convert to
+     * @param temperature The temperature to convert in Celsius provided from Garmin FIT by default
+     * @param requestedUnit Allows passing IMPERIAL to convert to Fahrenheit, or METRIC to keep the value as is.
      * @return The converted value
      */
     fun temperatureInRequestedUnit(temperature: Double, requestedUnit: MeasurementUnit): Double {
