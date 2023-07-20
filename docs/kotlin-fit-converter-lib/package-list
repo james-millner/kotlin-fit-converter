@@ -82,6 +82,7 @@ $dokka.location:kjm.fit.converter/KFitProtobufHandler/convertFitToProtobufByteAr
 $dokka.location:kjm.fit.converter/KFitProtobufHandler/convertFitToProtobufHexString/#kotlin.String#kotlin.Boolean#java.io.InputStream/PointingToDeclaration/kotlin-fit-converter-lib/kjm.fit.converter/-k-fit-protobuf-handler/convert-fit-to-protobuf-hex-string.html
 $dokka.location:kjm.fit.converter/KFitProtobufHandler/convertProtobufByteArrayToFit/#kotlin.ByteArray/PointingToDeclaration/kotlin-fit-converter-lib/kjm.fit.converter/-k-fit-protobuf-handler/convert-protobuf-byte-array-to-fit.html
 $dokka.location:kjm.fit.converter/KFitProtobufHandler/convertProtobufHexToFit/#kotlin.String/PointingToDeclaration/kotlin-fit-converter-lib/kjm.fit.converter/-k-fit-protobuf-handler/convert-protobuf-hex-to-fit.html
+$dokka.location:kjm.fit.converter/KFitProtobufHandler/getProtoBufSchema/#/PointingToDeclaration/kotlin-fit-converter-lib/kjm.fit.converter/-k-fit-protobuf-handler/get-proto-buf-schema.html
 kjm.fit.converter
 kjm.fit.converter.converters
 kjm.fit.converter.out.models

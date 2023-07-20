@@ -3,6 +3,7 @@ package kjm.fit.converter
 import kjm.fit.converter.out.models.FitFileData
 import kotlinx.serialization.*
 import kotlinx.serialization.protobuf.ProtoBuf
+import kotlinx.serialization.protobuf.schema.ProtoBufSchemaGenerator
 import java.io.InputStream
 
 /**
@@ -59,4 +60,15 @@ class KFitProtobufHandler {
      */
     fun convertProtobufByteArrayToFit(protoBuf: ByteArray): FitFileData =
         ProtoBuf.decodeFromByteArray(protoBuf)
+
+    /**
+     * Gets the Protobuf schema for the FIT file data class.
+     * At the moment this outputs a proto2 schema, but this will be updated to proto3 in the future.
+     * @see ProtoBufSchemaGenerator
+     * @see FitFileData
+     * @see ProtoBuf
+     * @return The Protobuf schema as a String.
+     */
+    fun getProtoBufSchema(): String =
+        ProtoBufSchemaGenerator.generateSchemaText(listOf(FitFileData.serializer().descriptor))
 }

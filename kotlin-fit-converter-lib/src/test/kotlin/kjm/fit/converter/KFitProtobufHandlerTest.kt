@@ -9,9 +9,16 @@ class KFitProtobufHandlerTest {
     private val kFitProtobufHandler = KFitProtobufHandler()
 
     @Test
+    fun generateProtobufSchema() {
+        val schema = kFitProtobufHandler.getProtoBufSchema()
+        val expectedSchema = this.javaClass.classLoader.getResourceAsStream("examples/protobuf/schema/fit-file-data-schema.proto")?.bufferedReader().use { it?.readText() }
+        assertEquals(expectedSchema, schema)
+    }
+
+    @Test
     fun convertFitToProtoBufHex() {
         val protoBuf = kFitProtobufHandler.convertFitToProtobufHexString("my-test-file", true, this.javaClass.classLoader.getResourceAsStream("fitfiles/tiny-fit-file.fit")!!)
-        val expectedProtoBuf = this.javaClass.classLoader.getResourceAsStream("examples/protobuf/tiny-fit-file-bytestring.protobuf")?.bufferedReader().use { it?.readText() }
+        val expectedProtoBuf = this.javaClass.classLoader.getResourceAsStream("examples/protobuf/tiny-fit-file-bytestring.proto")?.bufferedReader().use { it?.readText() }
         assertEquals(expectedProtoBuf, protoBuf)
     }
 
@@ -31,14 +38,14 @@ class KFitProtobufHandlerTest {
     @Test
     fun convertFitToProtoBufByteArray() {
         val protoBuf = kFitProtobufHandler.convertFitToProtobufByteArray("my-test-file", true, this.javaClass.classLoader.getResourceAsStream("fitfiles/tiny-fit-file.fit")!!)
-        val expectedProtoBuf = this.javaClass.classLoader.getResourceAsStream("examples/protobuf/tiny-fit-file-bytearray.protobuf").readBytes()
+        val expectedProtoBuf = this.javaClass.classLoader.getResourceAsStream("examples/protobuf/tiny-fit-file-bytearray.proto").readBytes()
         assertArrayEquals(expectedProtoBuf, protoBuf)
     }
 
     //Write a test that writes the protobuf to a file and then reads it back in and converts it back to a FitFileData object
     @Test
     fun convertFitToProtobufByteArrayToFit() {
-        val expectedProtoBuf = this.javaClass.classLoader.getResourceAsStream("examples/protobuf/tiny-fit-file-bytearray.protobuf").readBytes()
+        val expectedProtoBuf = this.javaClass.classLoader.getResourceAsStream("examples/protobuf/tiny-fit-file-bytearray.proto").readBytes()
         val expectedFitFile = KFitDataClassHandler().convertToDataClass("my-test-file", true, this.javaClass.classLoader.getResourceAsStream("fitfiles/tiny-fit-file.fit")!!)
 
         val protoBuf = kFitProtobufHandler.convertProtobufByteArrayToFit(expectedProtoBuf)
