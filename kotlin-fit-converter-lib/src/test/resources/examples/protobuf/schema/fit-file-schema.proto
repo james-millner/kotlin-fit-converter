@@ -1,0 +1,62 @@
+syntax = "proto3";
+
+
+// serial name 'kjm.fit.converter.out.models.FitFileData'
+message FitFileData {
+  string activityName = 1;
+  string activityStartDateTime = 2;
+  string sport = 3;
+  double averageHR = 4;
+  double maxHR = 5;
+  double averageCadence = 6;
+  double averagePower = 7;
+  double maxPower = 8;
+  double averageCalories = 9;
+  double averageSpeed = 10;
+  double maxSpeed = 11;
+  double averageTemperature = 12;
+  int32 totalAscent = 13;
+  int32 totalDescent = 14;
+  double totalDistance = 15;
+  // WARNING: a default value decoded when value is missing
+  repeated FitProduct productsUsed = 16;
+  // WARNING: a default value decoded when value is missing
+  repeated FitEvent events = 17;
+  // WARNING: a default value decoded when value is missing
+  repeated ActivityRecord activityRecords = 18;
+}
+
+// serial name 'kjm.fit.converter.out.models.FitProduct'
+message FitProduct {
+  string productName = 1;
+  string productDataConnection = 2;
+  string manufacturer = 3;
+}
+
+// serial name 'kjm.fit.converter.out.models.FitEvent'
+message FitEvent {
+  string timestamp = 1;
+  string eventType = 2;
+  string eventName = 3;
+  int32 frontGearNum = 4;
+  int32 rearGearNum = 5;
+}
+
+// serial name 'kjm.fit.converter.out.models.ActivityRecord'
+message ActivityRecord {
+  double heartRate = 1;
+  double cadence = 2;
+  double power = 3;
+  Location location = 4;
+  double temperature = 5;
+  double speed = 6;
+  double elevation = 7;
+  string timestamp = 8;
+}
+
+// serial name 'kjm.fit.converter.out.models.Location?'
+message Location {
+  double latitude = 1;
+  double longitude = 2;
+  float altitude = 3;
+}
