@@ -1,5 +1,5 @@
 @file:OptIn(ExperimentalSerializationApi::class) // buildSerialDescriptor requires this annotation
-package kjm.fit.converter.utils
+package kjm.fit.converter.utils.proto
 
 import kotlinx.serialization.Contextual
 import kotlinx.serialization.ExperimentalSerializationApi
@@ -51,33 +51,16 @@ import kotlinx.serialization.protobuf.ProtoType
  *
  * The name of messages and enums is extracted from [SerialDescriptor.serialName] in [SerialDescriptor] without the package directive,
  * as substring after the last dot character, the `'?'` character is also removed if it is present at the end of the string.
+ *
+ * Code written by @glureau
+ * https://github.com/glureau
+ *
  */
 @OptIn(InternalSerializationApi::class)
 @ExperimentalSerializationApi
 object ProtoBufSchemaGenerator {
 
     enum class ProtoVersion { v2, v3 }
-
-    /**
-     * Generate text of protocol buffers schema version 2 for the given [rootDescriptor].
-     * The resulting schema will contain all types referred by [rootDescriptor].
-     *
-     * [packageName] define common protobuf package for all messages and enum in the schema, it may contain `'a'`..`'z'`
-     * letters in upper and lower case, decimal digits, `'.'` or `'_'` chars, but must be started only by a letter and
-     * not finished by a dot.
-     *
-     * [options] define values for protobuf options. Option value (map value) is an any string, option name (map key)
-     * should be the same format as [packageName].
-     *
-     * The method throws [IllegalArgumentException] if any of the restrictions imposed by [ProtoBufSchemaGenerator] is violated.
-     */
-    @ExperimentalSerializationApi
-    public fun generateSchemaText(
-        rootDescriptor: SerialDescriptor,
-        packageName: String? = null,
-        options: Map<String, String> = emptyMap(),
-        protoVersion: ProtoVersion = ProtoVersion.v2,
-    ): String = generateSchemaText(listOf(rootDescriptor), packageName, options, protoVersion)
 
     /**
      * Generate text of protocol buffers schema version 2 for the given serializable [descriptors].
@@ -91,31 +74,16 @@ object ProtoBufSchemaGenerator {
      * The method throws [IllegalArgumentException] if any of the restrictions imposed by [ProtoBufSchemaGenerator] is violated.
      */
     @ExperimentalSerializationApi
-    public fun generateSchemaText(
+    fun generateSchemaText(
         descriptors: List<SerialDescriptor>,
         packageName: String? = null,
         options: Map<String, String> = emptyMap(),
         protoVersion: ProtoVersion = ProtoVersion.v2,
     ): String {
         packageName?.let { p -> p.checkIsValidFullIdentifier { "Incorrect protobuf package name '$it'" } }
-        checkDoubles(descriptors)
         val builder = StringBuilder()
         builder.generateProtoSchemaText(descriptors, packageName, options, protoVersion)
         return builder.toString()
-    }
-
-    private fun checkDoubles(descriptors: List<SerialDescriptor>) {
-        val rootTypesNames = mutableSetOf<String>()
-        val duplicates = mutableListOf<String>()
-
-        descriptors.map { it.messageOrEnumName }.forEach {
-            if (!rootTypesNames.add(it)) {
-                duplicates += it
-            }
-        }
-        if (duplicates.isNotEmpty()) {
-            throw IllegalArgumentException("Serial names of the following types are duplicated: $duplicates")
-        }
     }
 
     private fun StringBuilder.generateProtoSchemaText(
@@ -129,10 +97,9 @@ object ProtoBufSchemaGenerator {
             ProtoVersion.v3 -> appendLine("""syntax = "proto3";""").appendLine()
         }
 
-
         packageName?.let { append("package ").append(it).appendLine(';') }
 
-        for ((optionName, optionValue) in options) {
+        options.forEach { (optionName, optionValue) ->
             val safeOptionName = removeLineBreaks(optionName)
             val safeOptionValue = removeLineBreaks(optionValue)
             safeOptionName.checkIsValidFullIdentifier { "Invalid option name '$it'" }
@@ -450,7 +417,6 @@ object ProtoBufSchemaGenerator {
     private val SerialDescriptor.isValidMapKey: Boolean
         get() = kind == PrimitiveKind.INT || kind == PrimitiveKind.LONG || kind == PrimitiveKind.BOOLEAN || kind == PrimitiveKind.STRING
 
-
     private val SerialDescriptor.messageOrEnumName: String
         get() = (serialName.substringAfterLast('.', serialName)).removeSuffix("?")
 
@@ -607,7 +573,7 @@ object ProtoBufSchemaGenerator {
 
 // Copied from Helpers.kt as it's internal in Serialization library
 internal val SerialDescriptor.isPackable: Boolean
-    @OptIn(kotlinx.serialization.ExperimentalSerializationApi::class)
+    @OptIn(ExperimentalSerializationApi::class)
     get() = when (kind) {
         PrimitiveKind.STRING,
         !is PrimitiveKind,

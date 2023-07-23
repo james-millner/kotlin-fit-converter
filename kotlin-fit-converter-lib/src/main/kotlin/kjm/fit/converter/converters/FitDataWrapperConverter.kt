@@ -1,7 +1,7 @@
 package kjm.fit.converter.converters
 
 import kjm.fit.converter.out.models.FitFileData
-import kjm.fit.converter.utils.MeasurementUtils
+import kjm.fit.converter.utils.measurements.MeasurementUtils
 import kjm.fit.converter.wrappers.FitDataWrapper
 
 /**

@@ -2,6 +2,7 @@
 
 package kjm.fit.converter
 
+import kjm.fit.converter.utils.proto.ProtoBufSchemaGenerator
 import kotlinx.serialization.ExperimentalSerializationApi
 import org.junit.jupiter.api.Assertions.assertArrayEquals
 import org.junit.jupiter.api.Assertions.assertEquals
@@ -13,9 +14,16 @@ class KFitProtobufHandlerTest {
     private val kFitProtobufHandler = KFitProtobufHandler()
 
     @Test
-    fun generateProtobufSchema() {
-        val schema = kFitProtobufHandler.getProtoBufSchema()
-        val expectedSchema = this.javaClass.classLoader.getResourceAsStream("examples/protobuf/schema/fit-file-data-schema.proto")?.bufferedReader().use { it?.readText() }
+    fun generateProtobufSchemaProto2() {
+        val schema = kFitProtobufHandler.getProtoBufSchema(ProtoBufSchemaGenerator.ProtoVersion.v2)
+        val expectedSchema = this.javaClass.classLoader.getResourceAsStream("examples/protobuf/schema/fit-file-data-schema-proto2.proto")?.bufferedReader().use { it?.readText() }
+        assertEquals(expectedSchema, schema)
+    }
+
+    @Test
+    fun generateProtobufSchemaProto3() {
+        val schema = kFitProtobufHandler.getProtoBufSchema(ProtoBufSchemaGenerator.ProtoVersion.v3)
+        val expectedSchema = this.javaClass.classLoader.getResourceAsStream("examples/protobuf/schema/fit-file-data-schema-proto3.proto")?.bufferedReader().use { it?.readText() }
         assertEquals(expectedSchema, schema)
     }
 

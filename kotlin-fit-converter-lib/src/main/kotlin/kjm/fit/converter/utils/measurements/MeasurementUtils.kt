@@ -1,4 +1,4 @@
-package kjm.fit.converter.utils
+package kjm.fit.converter.utils.measurements
 
 import kotlin.math.ceil
 import kotlin.math.roundToInt
