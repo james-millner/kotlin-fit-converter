@@ -1,7 +1,6 @@
 package kjm.fit.converter
 
 import kjm.fit.converter.out.models.FitFileData
-import kjm.fit.converter.out.models.TestClass
 import kjm.fit.converter.utils.proto.ProtoBufSchemaGenerator
 import kjm.fit.converter.utils.proto.generateProtoBufSchema
 import kotlinx.serialization.*
@@ -73,7 +72,7 @@ class KFitProtobufHandler {
      */
     fun getProtoBufSchema(protoVersion: ProtoBufSchemaGenerator.ProtoVersion) = generateProtoBufSchema {
         descriptor(FitFileData.serializer().descriptor) // Add root serializable descriptor
-        descriptor(TestClass.serializer().descriptor)
+        packageName("kjm.fit.data") // Set package name
         protoVersion(protoVersion) // Set protocol buffers version
     }
 }
