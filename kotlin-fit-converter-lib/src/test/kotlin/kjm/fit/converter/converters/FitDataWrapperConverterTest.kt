@@ -24,9 +24,9 @@ class FitDataWrapperConverterTest {
     fun setup() {
         conversionService.addConverter(FitFileConverter())
         conversionService.addConverter(FitDataWrapperConverter())
-        conversionService.addConverter(FitEventMesgConverter())
-        conversionService.addConverter(FitProductConverter())
-        conversionService.addConverter(FitRecordMesgConverter())
+        conversionService.addConverter(FitEventConverter())
+        conversionService.addConverter(FitDeviceInfoConverter())
+        conversionService.addConverter(FitLocationDataConverter())
 
         assertNotNull(fileUnderTest)
 

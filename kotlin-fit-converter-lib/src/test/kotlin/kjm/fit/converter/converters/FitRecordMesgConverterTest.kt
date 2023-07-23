@@ -18,7 +18,7 @@ class FitRecordMesgConverterTest {
 
     @BeforeAll
     fun setup() {
-        conversionService.addConverter(FitRecordMesgConverter())
+        conversionService.addConverter(FitLocationDataConverter())
         assertNotNull(fileUnderTest)
 
         fitMessagesUnderTest = FitFileConverter().convert(fileUnderTest!!)

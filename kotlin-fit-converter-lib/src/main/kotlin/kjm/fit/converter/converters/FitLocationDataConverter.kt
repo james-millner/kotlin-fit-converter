@@ -1,16 +1,17 @@
 package kjm.fit.converter.converters
 
-import com.garmin.fit.RecordMesg
+import com.garmin.fit.RecordMesg as FitLocationData
 import kjm.fit.converter.out.models.LocationRecord
 import kjm.fit.converter.out.models.Location
 
 /**
  * Converter for converting RecordMesg to LocationRecord.
+ * RecordMesg has been aliased to FitLocationData to avoid confusion.
  * @see <a href="https://developer.garmin.com/fit/protocol/#record">RecordMesg</a>
  * @see LocationRecord
  */
-internal class FitRecordMesgConverter: Converter<RecordMesg, LocationRecord> {
-    override fun convert(source: RecordMesg): LocationRecord =
+internal class FitLocationDataConverter: Converter<FitLocationData, LocationRecord> {
+    override fun convert(source: FitLocationData): LocationRecord =
         LocationRecord(
             timestamp = source.timestamp.date.toInstant().toString(),
             heartRate = source.heartRate?.toDouble(),

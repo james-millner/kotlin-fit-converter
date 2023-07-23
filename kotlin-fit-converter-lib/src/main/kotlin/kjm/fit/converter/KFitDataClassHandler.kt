@@ -21,9 +21,9 @@ import java.io.InputStream
  * @see FitProduct
  * @see LocationRecord
  * @see FitFileConverter
- * @see FitEventMesgConverter
- * @see FitProductConverter
- * @see FitRecordMesgConverter
+ * @see FitEventConverter
+ * @see FitDeviceInfoConverter
+ * @see FitLocationDataConverter
  * @see FitDataWrapperConverter
  * @see ConversionService
  */
@@ -33,10 +33,10 @@ class KFitDataClassHandler {
 
     init {
         conversionService.addConverter(FitDataWrapperConverter())
-        conversionService.addConverter(FitEventMesgConverter())
+        conversionService.addConverter(FitEventConverter())
         conversionService.addConverter(FitFileConverter())
-        conversionService.addConverter(FitRecordMesgConverter())
-        conversionService.addConverter(FitProductConverter())
+        conversionService.addConverter(FitLocationDataConverter())
+        conversionService.addConverter(FitDeviceInfoConverter())
     }
 
     /**

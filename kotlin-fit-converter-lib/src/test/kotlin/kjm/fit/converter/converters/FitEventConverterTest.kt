@@ -1,8 +1,8 @@
 package kjm.fit.converter.converters
 
-import com.garmin.fit.DeviceInfoMesg
+import com.garmin.fit.EventMesg
 import com.garmin.fit.FitMessages
-import kjm.fit.converter.out.models.FitProduct
+import kjm.fit.converter.out.models.FitEvent
 import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.BeforeAll
 import org.junit.jupiter.api.Test
@@ -10,7 +10,7 @@ import org.junit.jupiter.api.TestInstance
 import java.io.InputStream
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
-class FitProductConverterTest {
+class FitEventConverterTest {
 
     private val conversionService = ConversionService()
     private val fileUnderTest: InputStream? = this.javaClass.classLoader.getResourceAsStream("fitfiles/wahoo-fit-example.fit")
@@ -18,7 +18,7 @@ class FitProductConverterTest {
 
     @BeforeAll
     fun setup() {
-        conversionService.addConverter(FitProductConverter())
+        conversionService.addConverter(FitEventConverter())
         assertNotNull(fileUnderTest)
 
         fitMessagesUnderTest = FitFileConverter().convert(fileUnderTest!!)
@@ -26,13 +26,12 @@ class FitProductConverterTest {
 
     @Test
     fun canConvert() {
-        assertTrue(conversionService.canConvert(DeviceInfoMesg::class.java, FitProduct::class.java))
+        assertTrue(conversionService.canConvert(EventMesg::class.java, FitEvent::class.java))
     }
 
     @Test
     fun convert() {
-        val fitProducts = fitMessagesUnderTest.deviceInfoMesgs.map { conversionService.convert(it, FitProduct::class.java) }
-        assertTrue(fitProducts.isNotEmpty())
-        assertEquals(173, fitProducts.size)
+        val eventMesg = fitMessagesUnderTest.eventMesgs.map { conversionService.convert(it, FitEvent::class.java) }
+        assertTrue(eventMesg.isNotEmpty())
     }
 }

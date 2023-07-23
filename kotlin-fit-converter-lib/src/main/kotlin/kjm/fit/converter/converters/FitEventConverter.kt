@@ -1,15 +1,16 @@
 package kjm.fit.converter.converters
 
-import com.garmin.fit.EventMesg
+import com.garmin.fit.EventMesg as FitEventData
 import kjm.fit.converter.out.models.FitEvent
 
 /**
  * Converter for converting EventMesg to FitEvent.
+ * EventMesg has been aliased to FitEventData to avoid confusion.
  * @see <a href="https://developer.garmin.com/fit/protocol/#event">EventMesg</a>
  * @see FitEvent
  */
-internal class FitEventMesgConverter: Converter<EventMesg, FitEvent> {
-    override fun convert(source: EventMesg): FitEvent =
+internal class FitEventConverter: Converter<FitEventData, FitEvent> {
+    override fun convert(source: FitEventData): FitEvent =
         FitEvent(
             timestamp = source.timestamp.date.toInstant().toString(),
             eventType = source.eventType?.toString(),
