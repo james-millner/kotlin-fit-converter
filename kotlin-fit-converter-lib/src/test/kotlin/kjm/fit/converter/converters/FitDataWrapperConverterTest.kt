@@ -1,7 +1,7 @@
 package kjm.fit.converter.converters
 
 import com.garmin.fit.FitMessages
-import kjm.fit.converter.out.models.ActivityRecord
+import kjm.fit.converter.out.models.LocationRecord
 import kjm.fit.converter.out.models.FitEvent
 import kjm.fit.converter.out.models.FitFileData
 import kjm.fit.converter.out.models.FitProduct
@@ -38,7 +38,7 @@ class FitDataWrapperConverterTest {
             fitMessages.eventMesgs?.mapNotNull { conversionService.convert(it, FitEvent::class.java) }?.toSet() ?: emptySet()
         val products = fitMessages.deviceInfoMesgs.mapNotNull { conversionService.convert(it, FitProduct::class.java) }
             .filter { it.productName != "GPS" }.toSet()
-        val records = fitMessages.recordMesgs?.mapNotNull { conversionService.convert(it, ActivityRecord::class.java) }?.toSet()
+        val records = fitMessages.recordMesgs?.mapNotNull { conversionService.convert(it, LocationRecord::class.java) }?.toSet()
             ?: emptySet()
 
         fitDataWrapper = FitDataWrapper(

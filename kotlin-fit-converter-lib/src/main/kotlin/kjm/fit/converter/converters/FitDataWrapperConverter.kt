@@ -36,7 +36,7 @@ internal class FitDataWrapperConverter : Converter<FitDataWrapper, FitFileData> 
             sport = session.sport.toString(),
             productsUsed = products.toSet(),
             events = events,
-            activityRecords = records,
+            locationRecords = records,
         )
     }
 }

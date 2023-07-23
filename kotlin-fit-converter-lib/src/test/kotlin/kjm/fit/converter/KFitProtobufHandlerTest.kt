@@ -1,8 +1,12 @@
+@file:OptIn(ExperimentalSerializationApi::class)
+
 package kjm.fit.converter
 
+import kotlinx.serialization.ExperimentalSerializationApi
 import org.junit.jupiter.api.Assertions.assertArrayEquals
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
+import java.io.File
 
 class KFitProtobufHandlerTest {
 

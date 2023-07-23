@@ -12,9 +12,11 @@ import kotlinx.serialization.Serializable
  * @param speed Speed captured.
  * @param elevation Elevation captured.
  * @param timestamp Timestamp of the event.
+ * @param distance Distance captured in meters.
+ * @param zone Zone captured.
  */
 @Serializable
-data class ActivityRecord(
+data class LocationRecord(
     val heartRate: Double?,
     val cadence: Double?,
     val power: Double?,
@@ -23,6 +25,8 @@ data class ActivityRecord(
     val speed: Double?,
     val elevation: Double?,
     val timestamp: String,
+    val distance: Double?,
+    val zone: Short?,
 )
 
 /**
@@ -30,10 +34,14 @@ data class ActivityRecord(
  * @param latitude Latitude of the location.
  * @param longitude Longitude of the location.
  * @param altitude Altitude of the location.
+ * @param grade Grade of the location.
+ * @param gpsAccuracy GPS accuracy of the location.
  */
 @Serializable
 data class Location(
     val latitude: Double,
     val longitude: Double,
     val altitude: Float?,
+    val grade: Double?,
+    val gpsAccuracy: Double?,
 )

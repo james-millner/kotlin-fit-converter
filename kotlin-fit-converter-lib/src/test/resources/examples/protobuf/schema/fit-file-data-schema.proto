@@ -23,7 +23,7 @@ message FitFileData {
   // WARNING: a default value decoded when value is missing
   repeated FitEvent events = 17;
   // WARNING: a default value decoded when value is missing
-  repeated ActivityRecord activityRecords = 18;
+  repeated LocationRecord locationRecords = 18;
 }
 
 // serial name 'kjm.fit.converter.out.models.FitProduct'
@@ -42,8 +42,8 @@ message FitEvent {
   optional int32 rearGearNum = 5;
 }
 
-// serial name 'kjm.fit.converter.out.models.ActivityRecord'
-message ActivityRecord {
+// serial name 'kjm.fit.converter.out.models.LocationRecord'
+message LocationRecord {
   optional double heartRate = 1;
   optional double cadence = 2;
   optional double power = 3;
@@ -52,6 +52,8 @@ message ActivityRecord {
   optional double speed = 6;
   optional double elevation = 7;
   required string timestamp = 8;
+  optional double distance = 9;
+  optional int32 zone = 10;
 }
 
 // serial name 'kjm.fit.converter.out.models.Location?'
@@ -59,4 +61,6 @@ message Location {
   required double latitude = 1;
   required double longitude = 2;
   optional float altitude = 3;
+  optional double grade = 4;
+  optional double gpsAccuracy = 5;
 }

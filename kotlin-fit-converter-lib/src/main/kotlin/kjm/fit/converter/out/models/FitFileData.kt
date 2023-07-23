@@ -22,10 +22,10 @@ import kotlinx.serialization.Serializable
  * @param totalDistance Total distance of the activity.
  * @param productsUsed Products used during the activity.
  * @param events Events during the activity.
- * @param activityRecords Activity records during the activity.
+ * @param locationRecords Activity records during the activity.
  * @see FitProduct
  * @see FitEvent
- * @see ActivityRecord
+ * @see LocationRecord
  * @see Location
  */
 @Serializable
@@ -47,5 +47,5 @@ data class FitFileData(
     val totalDistance: Double?,
     val productsUsed: Set<FitProduct> = emptySet(),
     val events: Set<FitEvent> = emptySet(),
-    val activityRecords: Set<ActivityRecord> = emptySet(),
+    val locationRecords: Set<LocationRecord> = emptySet(),
 )

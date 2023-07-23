@@ -2,7 +2,7 @@ package kjm.fit.converter.converters
 
 import com.garmin.fit.FitMessages
 import com.garmin.fit.RecordMesg
-import kjm.fit.converter.out.models.ActivityRecord
+import kjm.fit.converter.out.models.LocationRecord
 import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.BeforeAll
 import org.junit.jupiter.api.Test
@@ -26,12 +26,12 @@ class FitRecordMesgConverterTest {
 
     @Test
     fun canConvert() {
-        assertTrue(conversionService.canConvert(RecordMesg::class.java, ActivityRecord::class.java))
+        assertTrue(conversionService.canConvert(RecordMesg::class.java, LocationRecord::class.java))
     }
 
     @Test
     fun convert() {
-        val activityRecords = fitMessagesUnderTest.recordMesgs.map { conversionService.convert(it, ActivityRecord::class.java) }
+        val activityRecords = fitMessagesUnderTest.recordMesgs.map { conversionService.convert(it, LocationRecord::class.java) }
         assertTrue(activityRecords.isNotEmpty())
         assertEquals(16222, activityRecords.size)
     }
