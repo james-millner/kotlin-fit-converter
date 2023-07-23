@@ -5,7 +5,7 @@ import kjm.fit.converter.out.models.LocationRecord
 import kjm.fit.converter.out.models.FitEvent
 import kjm.fit.converter.out.models.FitFileData
 import kjm.fit.converter.out.models.FitProduct
-import kjm.fit.converter.utils.MeasurementUnit
+import kjm.fit.converter.utils.measurements.MeasurementUnit
 import kjm.fit.converter.wrappers.FitDataWrapper
 import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.BeforeAll

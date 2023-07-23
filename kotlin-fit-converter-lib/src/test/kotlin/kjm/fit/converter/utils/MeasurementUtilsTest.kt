@@ -1,5 +1,7 @@
 package kjm.fit.converter.utils
 
+import kjm.fit.converter.utils.measurements.MeasurementUnit
+import kjm.fit.converter.utils.measurements.MeasurementUtils
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.params.ParameterizedTest
