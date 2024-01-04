@@ -1,7 +1,7 @@
 package kjm.fit.converter.converters
 
-import com.garmin.fit.EventMesg as FitEventData
 import kjm.fit.converter.out.models.FitEvent
+import com.garmin.fit.EventMesg as FitEventData
 
 /**
  * Converter for converting EventMesg to FitEvent.

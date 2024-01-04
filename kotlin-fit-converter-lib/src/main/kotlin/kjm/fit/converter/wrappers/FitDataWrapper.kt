@@ -1,9 +1,9 @@
 package kjm.fit.converter.wrappers
 
 import com.garmin.fit.SessionMesg
-import kjm.fit.converter.out.models.LocationRecord
 import kjm.fit.converter.out.models.FitEvent
 import kjm.fit.converter.out.models.FitProduct
+import kjm.fit.converter.out.models.LocationRecord
 import kjm.fit.converter.utils.measurements.MeasurementUnit
 
 /**

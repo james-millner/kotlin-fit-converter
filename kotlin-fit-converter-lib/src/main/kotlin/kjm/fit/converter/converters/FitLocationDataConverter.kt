@@ -1,8 +1,8 @@
 package kjm.fit.converter.converters
 
-import com.garmin.fit.RecordMesg as FitLocationData
-import kjm.fit.converter.out.models.LocationRecord
 import kjm.fit.converter.out.models.Location
+import kjm.fit.converter.out.models.LocationRecord
+import com.garmin.fit.RecordMesg as FitLocationData
 
 /**
  * Converter for converting RecordMesg to LocationRecord.

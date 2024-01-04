@@ -1,26 +1,10 @@
 @file:OptIn(ExperimentalSerializationApi::class) // buildSerialDescriptor requires this annotation
 package kjm.fit.converter.utils.proto
 
-import kotlinx.serialization.Contextual
-import kotlinx.serialization.ExperimentalSerializationApi
-import kotlinx.serialization.InternalSerializationApi
-import kotlinx.serialization.Polymorphic
-import kotlinx.serialization.Serializable
+import kotlinx.serialization.*
 import kotlinx.serialization.builtins.serializer
-import kotlinx.serialization.descriptors.PolymorphicKind
-import kotlinx.serialization.descriptors.PrimitiveKind
-import kotlinx.serialization.descriptors.PrimitiveSerialDescriptor
-import kotlinx.serialization.descriptors.SerialDescriptor
-import kotlinx.serialization.descriptors.SerialKind
-import kotlinx.serialization.descriptors.StructureKind
-import kotlinx.serialization.descriptors.buildClassSerialDescriptor
-import kotlinx.serialization.descriptors.buildSerialDescriptor
-import kotlinx.serialization.descriptors.elementDescriptors
-import kotlinx.serialization.protobuf.ProtoBuf
-import kotlinx.serialization.protobuf.ProtoIntegerType
-import kotlinx.serialization.protobuf.ProtoNumber
-import kotlinx.serialization.protobuf.ProtoPacked
-import kotlinx.serialization.protobuf.ProtoType
+import kotlinx.serialization.descriptors.*
+import kotlinx.serialization.protobuf.*
 
 /**
  * Experimental generator of ProtoBuf schema that is compatible with [serializable][Serializable] Kotlin classes

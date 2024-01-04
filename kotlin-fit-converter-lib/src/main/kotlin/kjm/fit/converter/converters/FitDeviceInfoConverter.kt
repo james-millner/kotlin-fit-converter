@@ -1,10 +1,10 @@
 package kjm.fit.converter.converters
 
-import com.garmin.fit.DeviceInfoMesg as FitDeviceInfoData
 import com.garmin.fit.FaveroProduct
 import com.garmin.fit.GarminProduct
 import com.garmin.fit.Manufacturer
 import kjm.fit.converter.out.models.FitProduct
+import com.garmin.fit.DeviceInfoMesg as FitDeviceInfoData
 
 /**
  * Converter for converting DeviceInfoMesg to FitProduct.

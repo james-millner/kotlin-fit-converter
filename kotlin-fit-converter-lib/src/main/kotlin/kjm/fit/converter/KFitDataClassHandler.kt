@@ -2,10 +2,10 @@ package kjm.fit.converter
 
 import com.garmin.fit.FitMessages
 import kjm.fit.converter.converters.*
-import kjm.fit.converter.out.models.LocationRecord
 import kjm.fit.converter.out.models.FitEvent
 import kjm.fit.converter.out.models.FitFileData
 import kjm.fit.converter.out.models.FitProduct
+import kjm.fit.converter.out.models.LocationRecord
 import kjm.fit.converter.utils.measurements.MeasurementUnit
 import kjm.fit.converter.wrappers.FitDataWrapper
 import java.io.IOException

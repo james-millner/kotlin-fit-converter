@@ -29,7 +29,7 @@ plugins {
 }
 
 group = "kjm.fit.converter"
-version = "0.4.3-alpha"
+version = "0.4.4-alpha"
 
 repositories {
     // Use Maven Central for resolving dependencies.
