@@ -13,7 +13,7 @@ To ensure full understanding and legal compliance, users thoroughly review the a
 
 Source: https://developer.garmin.com/fit/overview/
 
-The version of the Garmin FIT SDK used in this project is **21.115.00.**
+The version of the Garmin FIT SDK used in this project is **21.126.00.**
 
 ## Features
 
