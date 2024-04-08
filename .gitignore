@@ -6,3 +6,5 @@ build
 /.idea/
 .DS_STORE
 /Makefile
+/.tool-versions
+/.editorconfig
