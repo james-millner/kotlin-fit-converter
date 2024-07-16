@@ -13,4 +13,5 @@ data class FitProduct(
     val productName: String,
     val productDataConnection: String?, // sourceType
     val manufacturer: String,
+    val description: String?,
 )

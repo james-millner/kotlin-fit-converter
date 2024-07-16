@@ -32,6 +32,7 @@ message FitProduct {
   required string productName = 1;
   optional string productDataConnection = 2;
   required string manufacturer = 3;
+  optional string description = 4;
 }
 
 // serial name 'kjm.fit.converter.out.models.FitEvent'

@@ -12,8 +12,8 @@ import java.io.FileWriter
 
 plugins {
     // Apply the org.jetbrains.kotlin.jvm Plugin to add support for Kotlin.
-    id("org.jetbrains.kotlin.jvm") version "1.9.23"
-    id ("org.jetbrains.kotlin.plugin.serialization") version "1.9.23"
+    id("org.jetbrains.kotlin.jvm") version "2.0.0"
+    id ("org.jetbrains.kotlin.plugin.serialization") version "2.0.0"
 
     // For my fat JAR needs
     id("com.github.johnrengelman.shadow") version "8.1.1"
@@ -31,7 +31,7 @@ plugins {
 }
 
 group = "kjm.fit.converter"
-version = "0.4.7-alpha"
+version = "0.4.8-alpha"
 
 repositories {
     // Use Maven Central for resolving dependencies.
@@ -39,16 +39,16 @@ repositories {
 }
 
 dependencies {
-    implementation("com.garmin:fit:21.135.0")
-    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.3")
-    implementation("org.jetbrains.kotlinx:kotlinx-serialization-protobuf:1.6.3")
+    implementation("com.garmin:fit:21.141.0")
+    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.7.0")
+    implementation("org.jetbrains.kotlinx:kotlinx-serialization-protobuf:1.7.0")
 
     // Use the Kotlin JUnit 5 integration.
     testImplementation("org.jetbrains.kotlin:kotlin-test-junit5")
 
     // Use the JUnit 5 integration.
-    testImplementation("org.junit.jupiter:junit-jupiter-engine:5.10.2")
-    testImplementation("org.junit.jupiter:junit-jupiter-params:5.10.2")
+    testImplementation("org.junit.jupiter:junit-jupiter-engine:5.10.3")
+    testImplementation("org.junit.jupiter:junit-jupiter-params:5.10.3")
 }
 
 val jvmTargetMajorVersion = 21

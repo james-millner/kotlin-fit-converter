@@ -18,13 +18,17 @@ internal class FitDeviceInfoConverter: Converter<FitDeviceInfoData, FitProduct> 
         return FitProduct(
             productName = productName,
             productDataConnection = source.sourceType?.toString(),
-            manufacturer = Manufacturer.getStringFromValue(source.manufacturer)
+            manufacturer = Manufacturer.getStringFromValue(source.manufacturer),
+            description = source.descriptor?.toString()
         )
     }
 
     private fun getProductName(source: FitDeviceInfoData): String =
         if(source.garminProduct != null) {
-            GarminProduct.getStringFromValue(source.garminProduct)
+            var garminProductName = GarminProduct.getStringFromValue(source.garminProduct)
+            garminProductName.ifEmpty {
+                source?.productName ?: "Unknown"
+            }
         } else if(source.faveroProduct != null) {
             FaveroProduct.getStringFromValue(source.faveroProduct)
         } else {

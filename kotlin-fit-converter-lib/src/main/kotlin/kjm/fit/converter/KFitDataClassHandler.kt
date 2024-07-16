@@ -57,7 +57,7 @@ class KFitDataClassHandler {
         val events =
             fitMessages.eventMesgs?.mapNotNull { conversionService.convert(it, FitEvent::class.java) }?.toSet() ?: emptySet()
         val products = fitMessages.deviceInfoMesgs.mapNotNull { conversionService.convert(it, FitProduct::class.java) }
-            .filter { it.productName != "GPS" }.toSet()
+            .sortedBy { it.productDataConnection }.toSet()
         val records = fitMessages.recordMesgs?.mapNotNull { conversionService.convert(it, LocationRecord::class.java) }?.toSet()
             ?: emptySet()
 

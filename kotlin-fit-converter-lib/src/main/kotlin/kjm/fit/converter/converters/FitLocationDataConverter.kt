@@ -11,6 +11,9 @@ import com.garmin.fit.RecordMesg as FitLocationData
  * @see LocationRecord
  */
 internal class FitLocationDataConverter: Converter<FitLocationData, LocationRecord> {
+
+    private val SCALING_FACTOR = 11930465.0
+
     override fun convert(source: FitLocationData): LocationRecord =
         LocationRecord(
             timestamp = source.timestamp.date.toInstant().toString(),
@@ -26,8 +29,8 @@ internal class FitLocationDataConverter: Converter<FitLocationData, LocationReco
                 Location(
                     gpsAccuracy = source.gpsAccuracy?.toDouble(),
                     grade = source.grade?.toDouble(),
-                    latitude = source.positionLat.div(11930465.0),
-                    longitude = source.positionLong.div(11930465.0),
+                    latitude = source.positionLat.div(SCALING_FACTOR),
+                    longitude = source.positionLong.div(SCALING_FACTOR),
                     altitude = source.altitude,
                 )
             }
