@@ -12,8 +12,8 @@ import java.io.FileWriter
 
 plugins {
     // Apply the org.jetbrains.kotlin.jvm Plugin to add support for Kotlin.
-    id("org.jetbrains.kotlin.jvm") version "2.0.0"
-    id ("org.jetbrains.kotlin.plugin.serialization") version "2.0.0"
+    id("org.jetbrains.kotlin.jvm") version "2.2.20"
+    id ("org.jetbrains.kotlin.plugin.serialization") version "2.2.20"
 
     // For my fat JAR needs
     id("com.github.johnrengelman.shadow") version "8.1.1"
@@ -39,9 +39,9 @@ repositories {
 }
 
 dependencies {
-    implementation("com.garmin:fit:21.141.0")
-    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.7.0")
-    implementation("org.jetbrains.kotlinx:kotlinx-serialization-protobuf:1.7.0")
+    implementation("com.garmin:fit:21.171.0")
+    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.9.0")
+    implementation("org.jetbrains.kotlinx:kotlinx-serialization-protobuf:1.9.0")
 
     // Use the Kotlin JUnit 5 integration.
     testImplementation("org.jetbrains.kotlin:kotlin-test-junit5")

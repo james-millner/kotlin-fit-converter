@@ -21,6 +21,7 @@ internal class FitDataWrapperConverter : Converter<FitDataWrapper, FitFileData> 
         return FitFileData(
             activityName = fileName,
             averageCadence = session.avgCadence?.toDouble(),
+            maxCadence = session.maxCadence?.toDouble(),
             averageHR = session.avgHeartRate?.toDouble(),
             maxHR = session.maxHeartRate?.toDouble(),
             averagePower = session.avgPower?.toDouble(),

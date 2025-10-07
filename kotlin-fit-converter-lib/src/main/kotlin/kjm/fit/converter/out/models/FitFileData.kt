@@ -36,6 +36,7 @@ data class FitFileData(
     val averageHR: Double?,
     val maxHR: Double?,
     val averageCadence: Double?,
+    val maxCadence: Double?,
     val averagePower: Double?,
     val maxPower: Double?,
     val averageCalories: Double?,
