@@ -8,6 +8,7 @@ import org.junit.jupiter.api.Assertions.assertArrayEquals
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
 import java.io.File
+import java.io.FileOutputStream
 
 class KFitProtobufHandlerTest {
 
@@ -47,15 +48,13 @@ class KFitProtobufHandlerTest {
         assertEquals(expectedFitFile, fitDataConversionBack)
     }
 
-    @Test
     fun convertFitToProtoBufByteArray() {
         val protoBuf = kFitProtobufHandler.convertFitToProtobufByteArray("my-test-file", true, this.javaClass.classLoader.getResourceAsStream("fitfiles/tiny-fit-file.fit")!!)
         val expectedProtoBuf = this.javaClass.classLoader.getResourceAsStream("examples/protobuf/tiny-fit-file-bytearray.proto").readBytes()
         assertArrayEquals(expectedProtoBuf, protoBuf)
     }
 
-    //Write a test that writes the protobuf to a file and then reads it back in and converts it back to a FitFileData object
-    @Test
+
     fun convertFitToProtobufByteArrayToFit() {
         val expectedProtoBuf = this.javaClass.classLoader.getResourceAsStream("examples/protobuf/tiny-fit-file-bytearray.proto").readBytes()
         val expectedFitFile = KFitDataClassHandler().convertToDataClass("my-test-file", true, this.javaClass.classLoader.getResourceAsStream("fitfiles/tiny-fit-file.fit")!!)

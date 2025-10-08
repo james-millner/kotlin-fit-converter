@@ -31,7 +31,7 @@ plugins {
 }
 
 group = "kjm.fit.converter"
-version = "0.4.9-alpha"
+version = "0.4.10-alpha"
 
 repositories {
     // Use Maven Central for resolving dependencies.
@@ -39,7 +39,7 @@ repositories {
 }
 
 dependencies {
-    implementation("com.garmin:fit:21.141.0")
+    implementation("com.garmin:fit:21.171.0")
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.7.0")
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-protobuf:1.7.0")
 

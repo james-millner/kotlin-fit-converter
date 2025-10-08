@@ -10,21 +10,22 @@ message FitFileData {
   optional double averageHR = 4;
   optional double maxHR = 5;
   optional double averageCadence = 6;
-  optional double averagePower = 7;
-  optional double maxPower = 8;
-  optional double averageCalories = 9;
-  optional double averageSpeed = 10;
-  optional double maxSpeed = 11;
-  optional double averageTemperature = 12;
-  optional int32 totalAscent = 13;
-  optional int32 totalDescent = 14;
-  optional double totalDistance = 15;
+  optional double maxCadence = 7;
+  optional double averagePower = 8;
+  optional double maxPower = 9;
+  optional double averageCalories = 10;
+  optional double averageSpeed = 11;
+  optional double maxSpeed = 12;
+  optional double averageTemperature = 13;
+  optional int32 totalAscent = 14;
+  optional int32 totalDescent = 15;
+  optional double totalDistance = 16;
   // WARNING: a default value decoded when value is missing
-  repeated FitProduct productsUsed = 16;
+  repeated FitProduct productsUsed = 17;
   // WARNING: a default value decoded when value is missing
-  repeated FitEvent events = 17;
+  repeated FitEvent events = 18;
   // WARNING: a default value decoded when value is missing
-  repeated LocationRecord locationRecords = 18;
+  repeated LocationRecord locationRecords = 19;
 }
 
 // serial name 'kjm.fit.converter.out.models.FitProduct'
