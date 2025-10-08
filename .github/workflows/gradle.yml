@@ -17,6 +17,7 @@ on:
 
 permissions:
   contents: read
+  packages: write
 
 jobs:
   build:
@@ -48,7 +49,8 @@ jobs:
 
     - name: Publish Package
       env:
-        PACKAGE_TOKEN: ${{ secrets.PACKAGE_TOKEN }}
+        GITHUB_ACTOR: ${{ github.actor }}
+        PACKAGE_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       uses: gradle/gradle-build-action@749f47bda3e44aa060e82d7b3ef7e40d953bd629
       with:
         arguments: publish
