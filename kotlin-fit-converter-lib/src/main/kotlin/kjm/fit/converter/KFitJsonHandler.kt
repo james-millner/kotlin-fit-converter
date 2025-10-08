@@ -26,13 +26,13 @@ class KFitJsonHandler {
 
     /**
      * Converts a FIT file to a JSON string.
-     * @param fileLocation The name of the file being converted.
+     * @param fileName The name of the file being converted.
      * @param metricSystem Whether to use the metric or imperial system for metrics. MeasurementUtils is used to determine this.
      * @param source The FIT file to convert as an InputStream.
      * @return The JSON string.
      */
-    fun convertFitToJSON(fileLocation: String, metricSystem: Boolean, source: InputStream) =
-        kFitDataClassHandler.convertToDataClass(fileLocation, metricSystem, source).let {
+    fun convertFitToJSON(fileName: String, metricSystem: Boolean = true, source: InputStream) =
+        kFitDataClassHandler.convertToDataClass(fileName, metricSystem, source).let {
             json.encodeToString(FitFileData.serializer(), it)
         }
 
