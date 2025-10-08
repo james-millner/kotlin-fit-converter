@@ -48,7 +48,7 @@ class KFitDataClassHandler {
      * @see FitFileData
      * @throws IOException If the file cannot be converted.
      */
-    fun convertToDataClass(fileName: String, metricSystem: Boolean, source: InputStream): FitFileData {
+    fun convertToDataClass(fileName: String, metricSystem: Boolean = true, source: InputStream): FitFileData {
 
         val fitMessages = conversionService.convert(source, FitMessages::class.java)
             ?: throw IOException("Unable to convert file to FitMessages. Please check the input file location.")
