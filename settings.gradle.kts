@@ -7,17 +7,15 @@
  * in the user manual at https://docs.gradle.org/8.1.1/userguide/multi_project_builds.html
  */
 
-// Kotlin 1.9.0 upgrade
 pluginManagement {
+    plugins {
+        id("com.google.devtools.ksp") version "2.0.21-1.0.27"
+    }
     repositories {
         mavenCentral()
         gradlePluginPortal()
+        google()
     }
-}
-
-plugins {
-    // Apply the foojay-resolver plugin to allow automatic download of JDKs
-    id("org.gradle.toolchains.foojay-resolver-convention") version "0.8.0"
 }
 
 rootProject.name = "kotlin-fit-converter"
