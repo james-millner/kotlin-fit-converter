@@ -29,8 +29,8 @@ class KFitProtobufHandler {
      * @param source The FIT file to convert as an InputStream.
      * @return The Protobuf hex string.
      */
-    fun convertFitToProtobufHexString(fileName: String, metricSystem: Boolean, source: InputStream): String =
-        kFitDataClassHandler.convertToDataClass(fileName, metricSystem, source).let { fitData ->
+    fun convertFitToProtobufHexString(fileName: String, source: InputStream): String =
+        kFitDataClassHandler.convertToDataClass(fileName, source).let { fitData ->
             ProtoBuf.encodeToHexString(fitData)
         }
 
@@ -41,8 +41,8 @@ class KFitProtobufHandler {
      * @param source The FIT file to convert as an InputStream.
      * @return The Protobuf byte array.
      */
-    fun convertFitToProtobufByteArray(fileName: String, metricSystem: Boolean, source: InputStream): ByteArray =
-        kFitDataClassHandler.convertToDataClass(fileName, metricSystem, source).let { fitData ->
+    fun convertFitToProtobufByteArray(fileName: String, source: InputStream): ByteArray =
+        kFitDataClassHandler.convertToDataClass(fileName, source).let { fitData ->
             ProtoBuf.encodeToByteArray(fitData)
         }
 

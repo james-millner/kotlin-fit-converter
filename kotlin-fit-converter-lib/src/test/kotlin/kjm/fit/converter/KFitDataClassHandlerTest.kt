@@ -15,7 +15,7 @@ class KFitDataClassHandlerTest {
 
     @Test
     fun canConvert() {
-        val fitData = kFitDataClassHandler.convertToDataClass("my-test-file", true, fileUnderTest!!)
+        val fitData = kFitDataClassHandler.convertToDataClass("my-test-file", fileUnderTest!!)
         assertNotNull(fitData)
         assertEquals(20, fitData.events.size)
         assertEquals(38.35, fitData.totalDistance)
@@ -27,8 +27,7 @@ class KFitDataClassHandlerTest {
     @Test
     fun canConvertLongerFile() {
         val fileUnderTest: InputStream? = this.javaClass.classLoader.getResourceAsStream("fitfiles/longer-fit-file.fit")
-        val fitData = kFitDataClassHandler.convertToDataClass("my-test-file", true, fileUnderTest!!)
-        var events = fitData.events.filter { it.eventName != "REAR_GEAR_CHANGE" && it.eventName != "FRONT_GEAR_CHANGE" }
+        val fitData = kFitDataClassHandler.convertToDataClass("my-test-file", fileUnderTest!!)
         assertNotNull(fitData)
     }
 }

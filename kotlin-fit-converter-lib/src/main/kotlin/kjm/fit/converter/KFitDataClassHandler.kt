@@ -27,7 +27,9 @@ import java.io.InputStream
  * @see FitDataWrapperConverter
  * @see ConversionService
  */
-class KFitDataClassHandler {
+class KFitDataClassHandler(
+    private val metricSystem: Boolean = true
+) {
 
     private var conversionService: ConversionService = ConversionService()
 
@@ -42,13 +44,12 @@ class KFitDataClassHandler {
     /**
      * Converts a FIT file to a FitFileData data class.
      * @param fileName The name of the file being converted.
-     * @param metricSystem Whether to use the metric or imperial system for metrics. MeasurementUtils is used to determine this.
      * @param source The FIT file to convert as an InputStream.
      * @return The FitFileData data class.
      * @see FitFileData
      * @throws IOException If the file cannot be converted.
      */
-    fun convertToDataClass(fileName: String, metricSystem: Boolean = true, source: InputStream): FitFileData {
+    fun convertToDataClass(fileName: String, source: InputStream): FitFileData {
 
         val fitMessages = conversionService.convert(source, FitMessages::class.java)
             ?: throw IOException("Unable to convert file to FitMessages. Please check the input file location.")

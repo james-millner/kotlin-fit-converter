@@ -16,13 +16,15 @@ import java.io.InputStream
  * @see kotlinx.serialization.json
  */
 @ExperimentalSerializationApi
-class KFitJsonHandler {
+class KFitJsonHandler(
+    metricSystem: Boolean = true
+) {
 
     private val json = Json {
         ignoreUnknownKeys = true
         explicitNulls = false
     }
-    private val kFitDataClassHandler = KFitDataClassHandler()
+    private val kFitDataClassHandler = KFitDataClassHandler(metricSystem = metricSystem)
 
     /**
      * Converts a FIT file to a JSON string.
@@ -31,8 +33,8 @@ class KFitJsonHandler {
      * @param source The FIT file to convert as an InputStream.
      * @return The JSON string.
      */
-    fun convertFitToJSON(fileName: String, metricSystem: Boolean = true, source: InputStream) =
-        kFitDataClassHandler.convertToDataClass(fileName, metricSystem, source).let {
+    fun convertFitToJSON(fileName: String, source: InputStream) =
+        kFitDataClassHandler.convertToDataClass(fileName, source).let {
             json.encodeToString(FitFileData.serializer(), it)
         }
 
