@@ -95,6 +95,11 @@ kotlin {
     }
 }
 
+// Temporary workaround, k2pb plugin should handle that automatically
+dependencies {
+    ksp("com.glureau.k2pb:k2pb-compiler:0.9.24")
+}
+
 publishing {
     publications {
         create<MavenPublication>("mavenJava") {
