@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+package kjm.fit.converter;
+
+option java_outer_classname = "LocationProto";
+
+import "com/glureau/k2pb/ExplicitNullability.proto";
+
+//  Internal representation of location data.
+//  @param latitude Latitude of the location.
+//  @param longitude Longitude of the location.
+//  @param altitude Altitude of the location.
+//  @param grade Grade of the location.
+//  @param gpsAccuracy GPS accuracy of the location.
+message Location {
+  double latitude = 1;
+  double longitude = 2;
+  float altitude = 3;
+  com.glureau.k2pb.ExplicitNullability isAltitudeNull = 4;
+  double grade = 5;
+  com.glureau.k2pb.ExplicitNullability isGradeNull = 6;
+  double gpsAccuracy = 7;
+  com.glureau.k2pb.ExplicitNullability isGpsAccuracyNull = 8;
+}

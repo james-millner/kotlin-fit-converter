@@ -1,5 +1,6 @@
 package kjm.fit.converter.out.models
 
+import com.glureau.k2pb.annotation.ProtoMessage
 import kotlinx.serialization.Serializable
 
 /**
@@ -16,6 +17,7 @@ import kotlinx.serialization.Serializable
  * @param zone Zone captured.
  */
 @Serializable
+@ProtoMessage
 data class LocationRecord(
     val heartRate: Double?,
     val cadence: Double?,
@@ -38,6 +40,7 @@ data class LocationRecord(
  * @param gpsAccuracy GPS accuracy of the location.
  */
 @Serializable
+@ProtoMessage
 data class Location(
     val latitude: Double,
     val longitude: Double,

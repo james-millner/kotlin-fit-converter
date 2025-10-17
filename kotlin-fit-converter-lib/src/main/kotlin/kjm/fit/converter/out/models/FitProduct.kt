@@ -1,5 +1,6 @@
 package kjm.fit.converter.out.models
 
+import com.glureau.k2pb.annotation.ProtoMessage
 import kotlinx.serialization.Serializable
 
 /**
@@ -9,6 +10,7 @@ import kotlinx.serialization.Serializable
  * @param manufacturer The manufacturer of the product.
  */
 @Serializable
+@ProtoMessage
 data class FitProduct(
     val productName: String,
     val productDataConnection: String?, // sourceType

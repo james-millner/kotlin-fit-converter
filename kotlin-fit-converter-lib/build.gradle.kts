@@ -1,5 +1,4 @@
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
-import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 import java.io.FileWriter
 
 /*
@@ -25,7 +24,7 @@ plugins {
     id("org.jetbrains.dokka") version "1.9.20"
 
     //K2PB - Protobuf
-    id("com.glureau.k2pb") version "0.9.24"
+    id("com.glureau.k2pb") version "0.9.25"
 
     `maven-publish`
     jacoco
@@ -68,6 +67,7 @@ kotlin {
     sourceSets {
         // Use the old Java-style source directories
         val jvmMain by getting {
+            kotlin.srcDir("build/generated/ksp/metadata/commonMain/kotlin")
             kotlin.srcDir("src/main/kotlin")
             resources.srcDir("src/main/resources")
 
@@ -82,7 +82,6 @@ kotlin {
         val jvmTest by getting {
             kotlin.srcDir("src/test/kotlin")
             resources.srcDir("src/test/resources")
-
             dependencies {
                 // Use the Kotlin JUnit 5 integration.
                 implementation("org.jetbrains.kotlin:kotlin-test-junit5")
@@ -94,10 +93,9 @@ kotlin {
         }
     }
 }
-
-// Temporary workaround, k2pb plugin should handle that automatically
 dependencies {
-    ksp("com.glureau.k2pb:k2pb-compiler:0.9.24")
+    // Temporary solution, k2pb plugin should handle that automatically
+    ksp("com.glureau.k2pb:k2pb-compiler:0.9.25")
 }
 
 publishing {
@@ -177,7 +175,8 @@ tasks.register("bumpVersionAndUpdateReadme") {
         val readmeFileLines = readmeFile.readLines()
         val updatedReadmeFileLines = readmeFileLines.map { line ->
             if (line.contains("[![Latest Release]")) {
-                val newBadge = "[![Latest Release](https://img.shields.io/badge/$newVersionString-red)](https://github.com/example/garmin-fit-converter/releases)"
+                val newBadge =
+                    "[![Latest Release](https://img.shields.io/badge/$newVersionString-red)](https://github.com/example/garmin-fit-converter/releases)"
                 newBadge
             } else {
                 line

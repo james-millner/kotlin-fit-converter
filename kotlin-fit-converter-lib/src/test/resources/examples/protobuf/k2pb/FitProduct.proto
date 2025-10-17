@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+package kjm.fit.converter;
+
+option java_outer_classname = "FitProductProto";
+
+import "com/glureau/k2pb/ExplicitNullability.proto";
+
+//  A data class representing various products used to record the fit file. Still in progress of being fleshed out.
+//  @param productName The name of the product.
+//  @param productDataConnection The data connection type of the product.
+//  @param manufacturer The manufacturer of the product.
+message FitProduct {
+  string productName = 1;
+  string productDataConnection = 2;
+  com.glureau.k2pb.ExplicitNullability isProductDataConnectionNull = 3;
+  string manufacturer = 4;
+  string description = 5;
+  com.glureau.k2pb.ExplicitNullability isDescriptionNull = 6;
+}

@@ -1,0 +1,40 @@
+syntax = "proto3";
+
+package kjm.fit.converter;
+
+option java_outer_classname = "LocationRecordProto";
+
+import "com/glureau/k2pb/ExplicitNullability.proto";
+import "kjm/fit/converter/Location.proto";
+
+//  A data class representing an event during an activity.
+//  @param heartRate HR captured.
+//  @param cadence Cadence captured.
+//  @param power Power captured.
+//  @param location Location Object captured.
+//  @param temperature Temperature captured.
+//  @param speed Speed captured.
+//  @param elevation Elevation captured.
+//  @param timestamp Timestamp of the event.
+//  @param distance Distance captured in meters.
+//  @param zone Zone captured.
+message LocationRecord {
+  double heartRate = 1;
+  com.glureau.k2pb.ExplicitNullability isHeartRateNull = 2;
+  double cadence = 3;
+  com.glureau.k2pb.ExplicitNullability isCadenceNull = 4;
+  double power = 5;
+  com.glureau.k2pb.ExplicitNullability isPowerNull = 6;
+  Location location = 7;
+  double temperature = 8;
+  com.glureau.k2pb.ExplicitNullability isTemperatureNull = 9;
+  double speed = 10;
+  com.glureau.k2pb.ExplicitNullability isSpeedNull = 11;
+  double elevation = 12;
+  com.glureau.k2pb.ExplicitNullability isElevationNull = 13;
+  string timestamp = 14;
+  double distance = 15;
+  com.glureau.k2pb.ExplicitNullability isDistanceNull = 16;
+  int32 zone = 17;
+  com.glureau.k2pb.ExplicitNullability isZoneNull = 18;
+}
