@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+package kjm.fit.converter;
+
+option java_outer_classname = "FitEventProto";
+
+import "com/glureau/k2pb/ExplicitNullability.proto";
+
+//  A data class for holding various event level data.
+//  Initially this is scoped for Di2 gear changes. But will be expanded to include other events.
+//  @param timestamp Timestamp of the event.
+//  @param eventType Type of event.
+//  @param eventName Name of the event.
+//  @param frontGearNum Front gear number.
+//  @param rearGearNum Rear gear number.
+message FitEvent {
+  string timestamp = 1;
+  com.glureau.k2pb.ExplicitNullability isTimestampNull = 2;
+  string eventType = 3;
+  com.glureau.k2pb.ExplicitNullability isEventTypeNull = 4;
+  string eventName = 5;
+  int32 frontGearNum = 6;
+  com.glureau.k2pb.ExplicitNullability isFrontGearNumNull = 7;
+  int32 rearGearNum = 8;
+  com.glureau.k2pb.ExplicitNullability isRearGearNumNull = 9;
+}

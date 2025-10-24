@@ -1,5 +1,6 @@
 package kjm.fit.converter.out.models
 
+import com.glureau.k2pb.annotation.ProtoMessage
 import kotlinx.serialization.Serializable
 
 /**
@@ -12,6 +13,7 @@ import kotlinx.serialization.Serializable
  * @param rearGearNum Rear gear number.
  */
 @Serializable
+@ProtoMessage
 data class FitEvent(
     val timestamp: String?,
     val eventType: String?,

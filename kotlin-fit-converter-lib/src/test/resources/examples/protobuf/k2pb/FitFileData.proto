@@ -1,0 +1,69 @@
+syntax = "proto3";
+
+package kjm.fit.converter;
+
+option java_outer_classname = "FitFileDataProto";
+
+import "com/glureau/k2pb/ExplicitNullability.proto";
+import "kjm/fit/converter/FitEvent.proto";
+import "kjm/fit/converter/FitProduct.proto";
+import "kjm/fit/converter/LocationRecord.proto";
+
+//  A data class representing the entire FIT file. This is an opinionated view on interesting data points and is subject to change.
+//  It's an effort to collate as much valuable data from as many activity types as possible. Initially though this has scope for cycling and running primarily.
+//  @param activityName The name of the activity.
+//  @param activityStartDateTime The start date and time of the activity.
+//  @param sport The sport of the activity.
+//  @param averageHR Average HR of the activity.
+//  @param maxHR Max HR of the activity.
+//  @param averageCadence Average cadence of the activity.
+//  @param averagePower Average power of the activity.
+//  @param maxPower Max power of the activity.
+//  @param averageCalories Average calories of the activity.
+//  @param averageSpeed Average speed of the activity.
+//  @param maxSpeed Max speed of the activity.
+//  @param averageTemperature Average temperature of the activity.
+//  @param totalAscent Total ascent of the activity.
+//  @param totalDescent Total descent of the activity.
+//  @param totalDistance Total distance of the activity.
+//  @param productsUsed Products used during the activity.
+//  @param events Events during the activity.
+//  @param locationRecords Activity records during the activity.
+//  @see FitProduct
+//  @see FitEvent
+//  @see LocationRecord
+//  @see Location
+message FitFileData {
+  string activityName = 1;
+  string activityStartDateTime = 2;
+  string sport = 3;
+  double averageHR = 4;
+  com.glureau.k2pb.ExplicitNullability isAverageHRNull = 5;
+  double maxHR = 6;
+  com.glureau.k2pb.ExplicitNullability isMaxHRNull = 7;
+  double averageCadence = 8;
+  com.glureau.k2pb.ExplicitNullability isAverageCadenceNull = 9;
+  double maxCadence = 10;
+  com.glureau.k2pb.ExplicitNullability isMaxCadenceNull = 11;
+  double averagePower = 12;
+  com.glureau.k2pb.ExplicitNullability isAveragePowerNull = 13;
+  double maxPower = 14;
+  com.glureau.k2pb.ExplicitNullability isMaxPowerNull = 15;
+  double averageCalories = 16;
+  com.glureau.k2pb.ExplicitNullability isAverageCaloriesNull = 17;
+  double averageSpeed = 18;
+  com.glureau.k2pb.ExplicitNullability isAverageSpeedNull = 19;
+  double maxSpeed = 20;
+  com.glureau.k2pb.ExplicitNullability isMaxSpeedNull = 21;
+  double averageTemperature = 22;
+  com.glureau.k2pb.ExplicitNullability isAverageTemperatureNull = 23;
+  int32 totalAscent = 24;
+  com.glureau.k2pb.ExplicitNullability isTotalAscentNull = 25;
+  int32 totalDescent = 26;
+  com.glureau.k2pb.ExplicitNullability isTotalDescentNull = 27;
+  double totalDistance = 28;
+  com.glureau.k2pb.ExplicitNullability isTotalDistanceNull = 29;
+  repeated FitProduct productsUsed = 30;
+  repeated FitEvent events = 31;
+  repeated LocationRecord locationRecords = 32;
+}

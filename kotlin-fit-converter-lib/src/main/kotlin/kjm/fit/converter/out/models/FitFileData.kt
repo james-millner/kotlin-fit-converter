@@ -1,5 +1,6 @@
 package kjm.fit.converter.out.models
 
+import com.glureau.k2pb.annotation.ProtoMessage
 import kotlinx.serialization.Serializable
 
 /**
@@ -29,6 +30,7 @@ import kotlinx.serialization.Serializable
  * @see Location
  */
 @Serializable
+@ProtoMessage
 data class FitFileData(
     val activityName: String,
     val activityStartDateTime: String,

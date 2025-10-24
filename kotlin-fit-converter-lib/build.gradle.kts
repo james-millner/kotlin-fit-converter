@@ -1,5 +1,4 @@
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
-import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 import java.io.FileWriter
 
 /*
@@ -12,8 +11,8 @@ import java.io.FileWriter
 
 plugins {
     // Apply the org.jetbrains.kotlin.jvm Plugin to add support for Kotlin.
-    id("org.jetbrains.kotlin.jvm") version "2.0.0"
-    id ("org.jetbrains.kotlin.plugin.serialization") version "2.0.0"
+    kotlin("multiplatform") version "2.0.21"
+    kotlin("plugin.serialization") version "2.0.0"
 
     // For my fat JAR needs
     id("com.github.johnrengelman.shadow") version "8.1.1"
@@ -24,56 +23,88 @@ plugins {
     // Apply the org.jetbrains.dokka plugin to generate documentation.
     id("org.jetbrains.dokka") version "1.9.20"
 
-    // Apply the java-library plugin for API and implementation separation.
-    `java-library`
+    //K2PB - Protobuf
+    id("com.glureau.k2pb") version "0.9.25"
+
     `maven-publish`
     jacoco
 }
 
 group = "kjm.fit.converter"
-version = "0.4.13-alpha"
+version = "0.4.14-alpha"
+
+val customPackage = "kjm.fit.converter"
+
+k2pb {
+    protoPackageName = customPackage
+    javaOuterClassnameSuffix = "Proto"
+}
 
 repositories {
     // Use Maven Central for resolving dependencies.
     mavenCentral()
 }
 
+kotlin {
+    jvm {
+        // Configure the JVM target with Java library compatibility
+        withJava()
+
+        compilations.all {
+            compileTaskProvider.configure {
+                compilerOptions {
+                    jvmTarget.set(JvmTarget.JVM_21)
+                }
+            }
+        }
+
+        // Enable JUnit 5 test support
+        testRuns["test"].executionTask.configure {
+            useJUnitPlatform()
+        }
+    }
+
+    sourceSets {
+        // Use the old Java-style source directories
+        val jvmMain by getting {
+            kotlin.srcDir("build/generated/ksp/metadata/commonMain/kotlin")
+            kotlin.srcDir("src/main/kotlin")
+            resources.srcDir("src/main/resources")
+
+            dependencies {
+                implementation("com.garmin:fit:21.171.0")
+                implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.7.0")
+                implementation("org.jetbrains.kotlinx:kotlinx-serialization-protobuf:1.7.0")
+                implementation("com.glureau.k2pb:k2pb-runtime-jvm:0.9.24")
+            }
+        }
+
+        val jvmTest by getting {
+            kotlin.srcDir("src/test/kotlin")
+            resources.srcDir("src/test/resources")
+            dependencies {
+                // Use the Kotlin JUnit 5 integration.
+                implementation("org.jetbrains.kotlin:kotlin-test-junit5")
+
+                // Use the JUnit 5 integration.
+                implementation("org.junit.jupiter:junit-jupiter-engine:5.10.3")
+                implementation("org.junit.jupiter:junit-jupiter-params:5.10.3")
+            }
+        }
+    }
+}
 dependencies {
-    implementation("com.garmin:fit:21.171.0")
-    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.7.0")
-    implementation("org.jetbrains.kotlinx:kotlinx-serialization-protobuf:1.7.0")
-
-    // Use the Kotlin JUnit 5 integration.
-    testImplementation("org.jetbrains.kotlin:kotlin-test-junit5")
-
-    // Use the JUnit 5 integration.
-    testImplementation("org.junit.jupiter:junit-jupiter-engine:5.10.3")
-    testImplementation("org.junit.jupiter:junit-jupiter-params:5.10.3")
-}
-
-val jvmTargetMajorVersion = 21
-
-// Apply a specific Java toolchain to ease working on different environments.
-java {
-    toolchain {
-        languageVersion.set(JavaLanguageVersion.of(jvmTargetMajorVersion))
-    }
-}
-
-tasks.withType<KotlinCompile>() {
-    compilerOptions {
-        jvmTarget.set(JvmTarget.JVM_21)
-    }
+    // Temporary solution, k2pb plugin should handle that automatically
+    ksp("com.glureau.k2pb:k2pb-compiler:0.9.25")
 }
 
 publishing {
     publications {
-        create<MavenPublication>("mavenLocal") {
+        create<MavenPublication>("mavenJava") {
+            from(components["kotlin"])
             groupId = "${group}"
             artifactId = "kotlin-fit-converter-lib"
             version = "${project.version}"
-
-            from(components["java"])
         }
     }
     repositories {
@@ -88,28 +119,14 @@ publishing {
     }
 }
 
-tasks.named<Test>("test") {
-    // Use JUnit Platform for unit tests.
-    useJUnitPlatform()
-    jacoco {
-        enabled = true
-    }
-}
-
-tasks {
-    shadowJar {
-        archiveClassifier.set("")
-    }
-}
-
 tasks.dokkaHtml {
-    outputDirectory.set(buildDir.resolve("documentation/html"))
+    outputDirectory.set(layout.buildDirectory.dir("documentation/html"))
 }
 
 tasks.register("copyDokkaDocs") {
     dependsOn("dokkaHtml")
     doLast {
-        val dokkaDocsDir = file("${buildDir}/documentation/html")
+        val dokkaDocsDir = layout.buildDirectory.dir("documentation/html").get().asFile
         val targetDocsDir = file("../docs")
 
         if (dokkaDocsDir.exists()) {
@@ -158,7 +175,8 @@ tasks.register("bumpVersionAndUpdateReadme") {
         val readmeFileLines = readmeFile.readLines()
         val updatedReadmeFileLines = readmeFileLines.map { line ->
             if (line.contains("[![Latest Release]")) {
-                val newBadge = "[![Latest Release](https://img.shields.io/badge/$newVersionString-red)](https://github.com/example/garmin-fit-converter/releases)"
+                val newBadge =
+                    "[![Latest Release](https://img.shields.io/badge/$newVersionString-red)](https://github.com/example/garmin-fit-converter/releases)"
                 newBadge
             } else {
                 line
