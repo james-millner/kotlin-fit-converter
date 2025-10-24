@@ -48,10 +48,21 @@ jobs:
         path: kotlin-fit-converter-lib/build/reports/tests/test
 
     - name: Publish Package
+      continue-on-error: true
       env:
         GITHUB_ACTOR: ${{ github.actor }}
         PACKAGE_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       uses: gradle/gradle-build-action@749f47bda3e44aa060e82d7b3ef7e40d953bd629
       with:
         arguments: publish
+
+    - name: Check Publish Result
+      if: steps.publish.outcome == 'failure'
+      run: |
+        if grep -q "409 Conflict" kotlin-fit-converter-lib/build/reports/publish.log; then
+          echo "409 Conflict detected. Ignoring the error."
+        else
+          echo "Unexpected error occurred."
+          exit 1
+        fi
 
