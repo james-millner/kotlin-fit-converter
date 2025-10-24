@@ -1,3 +1,4 @@
+import org.gradle.kotlin.dsl.support.kotlinCompilerOptions
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 import java.io.FileWriter
 
@@ -31,7 +32,7 @@ plugins {
 }
 
 group = "kjm.fit.converter"
-version = "0.4.14-alpha"
+version = "0.5.0-alpha"
 
 val customPackage = "kjm.fit.converter"
 
