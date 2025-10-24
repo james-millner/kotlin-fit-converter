@@ -46,6 +46,7 @@ repositories {
 }
 
 kotlin {
+    jvmToolchain(21)
     jvm {
         // Configure the JVM target with Java library compatibility
         withJava()
