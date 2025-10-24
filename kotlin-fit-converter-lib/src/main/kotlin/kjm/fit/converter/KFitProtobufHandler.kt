@@ -1,10 +1,10 @@
 package kjm.fit.converter
 
+import com.glureau.k2pb.runtime.K2PB
+import com.glureau.k2pb.runtime.decodeFromByteArray
+import com.glureau.k2pb.runtime.encodeToByteArray
 import kjm.fit.converter.out.models.FitFileData
-import kjm.fit.converter.utils.proto.ProtoBufSchemaGenerator
-import kjm.fit.converter.utils.proto.generateProtoBufSchema
-import kotlinx.serialization.*
-import kotlinx.serialization.protobuf.ProtoBuf
+import kjm.fit.converter.out.models.registerKotlinFitConverterLibCodecs
 import java.io.InputStream
 
 /**
@@ -13,37 +13,37 @@ import java.io.InputStream
  * @property kFitDataClassHandler The KFitDataClassHandler instance to use.
  * @see KFitDataClassHandler
  * @see FitFileData
- * @see ProtoBuf
- * @see kotlinx.serialization
- * @see kotlinx.serialization.protobuf
  */
-@ExperimentalSerializationApi
 class KFitProtobufHandler {
 
     private val kFitDataClassHandler = KFitDataClassHandler()
 
+    private val serializer = K2PB {
+        registerKotlinFitConverterLibCodecs()
+    }
+
     /**
      * Converts a FIT file to a Protobuf hex string.
      * @param fileName The name of the file being converted.
-     * @param metricSystem Whether to use the metric or imperial system for metrics. MeasurementUtils is used to determine this.
      * @param source The FIT file to convert as an InputStream.
      * @return The Protobuf hex string.
      */
+    @OptIn(ExperimentalStdlibApi::class) // toHexString
     fun convertFitToProtobufHexString(fileName: String, source: InputStream): String =
         kFitDataClassHandler.convertToDataClass(fileName, source).let { fitData ->
-            ProtoBuf.encodeToHexString(fitData)
+            serializer.encodeToByteArray<FitFileData>(fitData)
+                .joinToString("") { it.toHexString() }
         }
 
     /**
      * Converts a FIT file to a Protobuf byte array.
      * @param fileName The name of the file being converted.
-     * @param metricSystem Whether to use the metric or imperial system for metrics. MeasurementUtils is used to determine this.
      * @param source The FIT file to convert as an InputStream.
      * @return The Protobuf byte array.
      */
     fun convertFitToProtobufByteArray(fileName: String, source: InputStream): ByteArray =
         kFitDataClassHandler.convertToDataClass(fileName, source).let { fitData ->
-            ProtoBuf.encodeToByteArray(fitData)
+            serializer.encodeToByteArray<FitFileData>(fitData)
         }
 
     /**
@@ -51,8 +51,11 @@ class KFitProtobufHandler {
      * @param protoBuf The Protobuf hex string to convert.
      * @return The FIT file data class.
      */
+    @OptIn(ExperimentalStdlibApi::class) // hexToByte
     fun convertProtobufHexToFit(protoBuf: String): FitFileData =
-        ProtoBuf.decodeFromHexString(protoBuf)
+        protoBuf.chunked(2).map { it.hexToByte() }.toByteArray().let {
+            serializer.decodeFromByteArray<FitFileData>(it)!!
+        }
 
     /**
      * Converts a Protobuf byte array to a FIT file data class.
@@ -60,19 +63,7 @@ class KFitProtobufHandler {
      * @return The FIT file data class.
      */
     fun convertProtobufByteArrayToFit(protoBuf: ByteArray): FitFileData =
-        ProtoBuf.decodeFromByteArray(protoBuf)
+        serializer.decodeFromByteArray<FitFileData>(protoBuf)!!
 
-    /**
-     * Gets the Protobuf schema for the FIT file data class.
-     * At the moment this outputs a proto2 schema, but this will be updated to proto3 in the future.
-     * @see ProtoBufSchemaGenerator
-     * @see FitFileData
-     * @see ProtoBuf
-     * @return The Protobuf schema as a String.
-     */
-    fun getProtoBufSchema(protoVersion: ProtoBufSchemaGenerator.ProtoVersion) = generateProtoBufSchema {
-        descriptor(FitFileData.serializer().descriptor) // Add root serializable descriptor
-        packageName("kjm.fit.data") // Set package name
-        protoVersion(protoVersion) // Set protocol buffers version
-    }
+    // proto file are generated at build time
 }

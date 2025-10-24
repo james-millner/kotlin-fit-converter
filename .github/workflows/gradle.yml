@@ -39,7 +39,7 @@ jobs:
       uses: gradle/gradle-build-action@v2
 
     - name: Execute Gradle build
-      run: ./gradlew clean build test shadowJar --stacktrace
+      run: ./gradlew clean build test --stacktrace
 
     - name: Upload build reports
       uses: actions/upload-artifact@v4
