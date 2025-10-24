@@ -14,9 +14,11 @@ import java.io.InputStream
  * @see KFitDataClassHandler
  * @see FitFileData
  */
-class KFitProtobufHandler {
+class KFitProtobufHandler(
+    metricSystem: Boolean = true
+) {
 
-    private val kFitDataClassHandler = KFitDataClassHandler()
+    private val kFitDataClassHandler = KFitDataClassHandler(metricSystem)
 
     private val serializer = K2PB {
         registerKotlinFitConverterLibCodecs()
