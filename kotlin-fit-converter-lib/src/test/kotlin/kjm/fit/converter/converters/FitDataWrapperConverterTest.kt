@@ -67,6 +67,20 @@ class FitDataWrapperConverterTest {
         assertEquals(8.6, fitFileData.averageSpeed)
     }
 
+    @Test
+    fun mapsTheSessionActiveTimeWhichNoSampleFileIsOldEnoughToCarry() {
+        val timedSession = FitDataWrapper(
+            fitFileName = "timed-session",
+            metricSystem = MeasurementUnit.METRIC,
+            session = SessionMesg().apply { activeTime = 3600.5f },
+            events = emptySet(),
+            products = emptySet(),
+            records = emptySet(),
+        )
+
+        assertEquals(3600.5, FitDataWrapperConverter().convert(timedSession).activeTime)
+    }
+
     /**
      * The Garmin SDK is Java: every session getter returns a boxed type and hands back null for a field
      * the device never wrote. A session with nothing populated must convert to nulls, not blow up and not
@@ -89,6 +103,7 @@ class FitDataWrapperConverterTest {
         assertNull(fitFileData.maxSpeed)
         assertNull(fitFileData.totalDistance)
         assertNull(fitFileData.averageTemperature)
+        assertNull(fitFileData.activeTime)
         assertNull(fitFileData.totalAscent)
         assertEquals("", fitFileData.activityStartDateTime)
         assertEquals("", fitFileData.sport)

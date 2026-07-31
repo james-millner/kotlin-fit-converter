@@ -31,7 +31,7 @@ plugins {
 }
 
 group = "kjm.fit.converter"
-version = "0.5.3-alpha"
+version = "0.5.4-alpha"
 
 val customPackage = "kjm.fit.converter"
 

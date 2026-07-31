@@ -24,6 +24,8 @@ import kotlinx.serialization.Serializable
  * @param productsUsed Products used during the activity.
  * @param events Events during the activity.
  * @param locationRecords Activity records during the activity.
+ * @param activeTime Time spent active during the activity, in seconds. Only recorded by devices on Garmin
+ * FIT SDK 21.205.0 or later, so it is absent from older files.
  * @see FitProduct
  * @see FitEvent
  * @see LocationRecord
@@ -51,4 +53,5 @@ data class FitFileData(
     val productsUsed: Set<FitProduct> = emptySet(),
     val events: Set<FitEvent> = emptySet(),
     val locationRecords: Set<LocationRecord> = emptySet(),
+    val activeTime: Double? = null,
 )

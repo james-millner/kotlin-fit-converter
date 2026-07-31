@@ -35,6 +35,7 @@ internal class FitDataWrapperConverter : Converter<FitDataWrapper, FitFileData> 
             totalAscent = session.totalAscent?.let { measurementUtils.elevationInRequestedUnit(it, metricSystem) },
             totalDescent = session.totalDescent?.let { measurementUtils.elevationInRequestedUnit(it, metricSystem) },
             sport = session.sport?.toString().orEmpty(),
+            activeTime = session.activeTime?.toDouble(),
             productsUsed = products,
             events = events,
             locationRecords = records,
