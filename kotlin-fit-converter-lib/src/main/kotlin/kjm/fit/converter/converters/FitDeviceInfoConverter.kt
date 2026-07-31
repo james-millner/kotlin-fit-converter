@@ -24,14 +24,14 @@ internal class FitDeviceInfoConverter: Converter<FitDeviceInfoData, FitProduct> 
     }
 
     private fun getProductName(source: FitDeviceInfoData): String =
-        if(source.garminProduct != null) {
-            var garminProductName = GarminProduct.getStringFromValue(source.garminProduct)
-            garminProductName.ifEmpty {
-                source?.productName ?: "Unknown"
-            }
-        } else if(source.faveroProduct != null) {
-            FaveroProduct.getStringFromValue(source.faveroProduct)
+        if (source.garminProduct != null) {
+            GarminProduct.getStringFromValue(source.garminProduct).ifEmpty { fallbackProductName(source) }
+        } else if (source.faveroProduct != null) {
+            FaveroProduct.getStringFromValue(source.faveroProduct).ifEmpty { fallbackProductName(source) }
         } else {
-            source?.productName ?: "Unknown"
+            fallbackProductName(source)
         }
+
+    private fun fallbackProductName(source: FitDeviceInfoData): String =
+        source.productName ?: "Unknown"
 }

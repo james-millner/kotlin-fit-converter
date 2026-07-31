@@ -32,7 +32,7 @@ plugins {
 }
 
 group = "kjm.fit.converter"
-version = "0.5.1-alpha"
+version = "0.5.2-alpha"
 
 val customPackage = "kjm.fit.converter"
 
@@ -74,7 +74,7 @@ kotlin {
             resources.srcDir("src/main/resources")
 
             dependencies {
-                implementation("com.garmin:fit:21.171.0")
+                implementation("com.garmin:fit:21.205.0")
                 implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.7.0")
                 implementation("org.jetbrains.kotlinx:kotlinx-serialization-protobuf:1.7.0")
                 implementation("com.glureau.k2pb:k2pb-runtime-jvm:0.9.24")

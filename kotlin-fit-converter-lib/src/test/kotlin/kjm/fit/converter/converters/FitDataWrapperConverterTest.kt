@@ -1,6 +1,7 @@
 package kjm.fit.converter.converters
 
 import com.garmin.fit.FitMessages
+import com.garmin.fit.SessionMesg
 import kjm.fit.converter.out.models.LocationRecord
 import kjm.fit.converter.out.models.FitEvent
 import kjm.fit.converter.out.models.FitFileData
@@ -64,5 +65,50 @@ class FitDataWrapperConverterTest {
         assertEquals("CYCLING", fitFileData.sport)
         assertEquals(3550.0, fitFileData.averageCalories)
         assertEquals(8.6, fitFileData.averageSpeed)
+    }
+
+    /**
+     * The Garmin SDK is Java: every session getter returns a boxed type and hands back null for a field
+     * the device never wrote. A session with nothing populated must convert to nulls, not blow up and not
+     * invent zeroes, so absent readings stay distinguishable from real ones.
+     */
+    @Test
+    fun convertsASessionWithNoPopulatedFields() {
+        val bareSession = FitDataWrapper(
+            fitFileName = "empty-session",
+            metricSystem = MeasurementUnit.METRIC,
+            session = SessionMesg(),
+            events = emptySet(),
+            products = emptySet(),
+            records = emptySet(),
+        )
+
+        val fitFileData = FitDataWrapperConverter().convert(bareSession)
+
+        assertNull(fitFileData.averageSpeed)
+        assertNull(fitFileData.maxSpeed)
+        assertNull(fitFileData.totalDistance)
+        assertNull(fitFileData.averageTemperature)
+        assertNull(fitFileData.totalAscent)
+        assertEquals("", fitFileData.activityStartDateTime)
+        assertEquals("", fitFileData.sport)
+    }
+
+    /**
+     * An absent temperature reading must not surface as a real one. In imperial that is the sharper case:
+     * a null Celsius reading defaulted to 0.0 would be reported as a plausible 32F.
+     */
+    @Test
+    fun doesNotReportAnAbsentTemperatureAsFreezing() {
+        val imperialSession = FitDataWrapper(
+            fitFileName = "empty-session",
+            metricSystem = MeasurementUnit.IMPERIAL,
+            session = SessionMesg(),
+            events = emptySet(),
+            products = emptySet(),
+            records = emptySet(),
+        )
+
+        assertNull(FitDataWrapperConverter().convert(imperialSession).averageTemperature)
     }
 }

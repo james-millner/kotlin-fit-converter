@@ -27,14 +27,14 @@ class MeasurementUtilsTest {
     @CsvSource("7.5, 16.8", "25.0, 56.0", "18, 40.3", "26.0, 58.2")
     @DisplayName("Meters per second (m/s) to Miles per hour (MPH) Conversion")
     fun metersPerSecondToMph(metersPerSecond: Float, mph: Double) {
-        assertEquals(mph, measurementUtils.durationInRequestedUnit(metersPerSecond, MeasurementUnit.IMPERIAL))
+        assertEquals(mph, measurementUtils.speedInRequestedUnit(metersPerSecond, MeasurementUnit.IMPERIAL))
     }
 
     @ParameterizedTest(name = "Meters per second (m/s) {0} should be equal to Kilometers per hour (KMH) {1}")
     @CsvSource("7.5, 27.0", "25.0, 90.0", "18, 64.8", "26.0, 93.7")
     @DisplayName("Meters per second (m/s) to Kilometers per hour (KMH) Conversion")
     fun metersPerSecondToKmh(metersPerSecond: Float, kmh: Double) {
-        assertEquals(kmh, measurementUtils.durationInRequestedUnit(metersPerSecond, MeasurementUnit.METRIC))
+        assertEquals(kmh, measurementUtils.speedInRequestedUnit(metersPerSecond, MeasurementUnit.METRIC))
     }
 
     @ParameterizedTest(name = "Meters {0} should be equal to Kilometers {1}")

@@ -12,9 +12,9 @@ import com.garmin.fit.EventMesg as FitEventData
 internal class FitEventConverter: Converter<FitEventData, FitEvent> {
     override fun convert(source: FitEventData): FitEvent =
         FitEvent(
-            timestamp = source.timestamp.date.toInstant().toString(),
+            timestamp = source.timestamp?.date?.toInstant()?.toString(),
             eventType = source.eventType?.toString(),
-            eventName = source.event.name,
+            eventName = source.event?.name.orEmpty(),
             frontGearNum = source.frontGearNum?.toInt(),
             rearGearNum = source.rearGearNum?.toInt(),
         )

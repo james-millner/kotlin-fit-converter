@@ -31,7 +31,7 @@ class KFitDataClassHandler(
     private val metricSystem: Boolean = true
 ) {
 
-    private var conversionService: ConversionService = ConversionService()
+    private val conversionService: ConversionService = ConversionService()
 
     init {
         conversionService.addConverter(FitDataWrapperConverter())
@@ -54,7 +54,8 @@ class KFitDataClassHandler(
         val fitMessages = conversionService.convert(source, FitMessages::class.java)
             ?: throw IOException("Unable to convert file to FitMessages. Please check the input file location.")
 
-        val session = fitMessages.sessionMesgs.first() ?: throw Exception("No session message found in file.")
+        val session = fitMessages.sessionMesgs.firstOrNull()
+            ?: throw IOException("No session message found in file. Only FIT files containing an activity session can be converted.")
         val events =
             fitMessages.eventMesgs?.mapNotNull { conversionService.convert(it, FitEvent::class.java) }?.toSet() ?: emptySet()
         val products = fitMessages.deviceInfoMesgs.mapNotNull { conversionService.convert(it, FitProduct::class.java) }

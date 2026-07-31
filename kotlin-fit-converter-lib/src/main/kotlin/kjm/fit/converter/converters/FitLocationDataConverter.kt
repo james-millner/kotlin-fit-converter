@@ -12,11 +12,14 @@ import com.garmin.fit.RecordMesg as FitLocationData
  */
 internal class FitLocationDataConverter: Converter<FitLocationData, LocationRecord> {
 
-    private val SCALING_FACTOR = 11930465.0
+    private companion object {
+        /** FIT stores coordinates in semicircles, where 2^31 semicircles is 180 degrees. */
+        const val SEMICIRCLES_PER_DEGREE = 11930465.0
+    }
 
     override fun convert(source: FitLocationData): LocationRecord =
         LocationRecord(
-            timestamp = source.timestamp.date.toInstant().toString(),
+            timestamp = source.timestamp?.date?.toInstant()?.toString().orEmpty(),
             heartRate = source.heartRate?.toDouble(),
             cadence = source.cadence?.toDouble(),
             power = source.power?.toDouble(),
@@ -29,8 +32,8 @@ internal class FitLocationDataConverter: Converter<FitLocationData, LocationReco
                 Location(
                     gpsAccuracy = source.gpsAccuracy?.toDouble(),
                     grade = source.grade?.toDouble(),
-                    latitude = source.positionLat.div(SCALING_FACTOR),
-                    longitude = source.positionLong.div(SCALING_FACTOR),
+                    latitude = source.positionLat.div(SEMICIRCLES_PER_DEGREE),
+                    longitude = source.positionLong.div(SEMICIRCLES_PER_DEGREE),
                     altitude = source.altitude,
                 )
             }

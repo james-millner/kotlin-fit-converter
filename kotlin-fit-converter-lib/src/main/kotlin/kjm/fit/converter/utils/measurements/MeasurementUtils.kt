@@ -22,37 +22,52 @@ enum class MeasurementUnit {
  */
 class MeasurementUtils {
 
-    private val one_meter_in_feet = 3.28084
-    private val one_meter_in_miles = 0.000621371
-    private val one_kilometer_in_meters = 1000.0
-    private val mph_conversion_factor = 2.23694
-    private val kmh_conversion_factor = 3.6
-    private val ten = 10
-    private val one_hundred = 100
+    private companion object {
+        const val ONE_METER_IN_FEET = 3.28084
+        const val ONE_METER_IN_MILES = 0.000621371
+        const val ONE_KILOMETER_IN_METERS = 1000.0
+        const val MPH_CONVERSION_FACTOR = 2.23694
+        const val KMH_CONVERSION_FACTOR = 3.6
+        const val ONE_DECIMAL_PLACE = 10
+        const val TWO_DECIMAL_PLACES = 100
+    }
 
     /**
      * Converts the given meters per second to the requested unit
      * @param metersPerSecond The meters per second to convert originally provided from Garmin FIT
      * @param requestedUnit Allows passing IMPERIAL to convert to miles per hour, or METRIC to get kilometers per hour.
-     * @return The converted value
+     * @return The converted value, rounded up to one decimal place
      */
-    fun durationInRequestedUnit(metersPerSecond: Float, requestedUnit: MeasurementUnit): Double {
+    fun speedInRequestedUnit(metersPerSecond: Float, requestedUnit: MeasurementUnit): Double {
         return when (requestedUnit) {
-            MeasurementUnit.IMPERIAL -> ceil(metersPerSecond * mph_conversion_factor * ten) / ten
-            else -> ceil(metersPerSecond * kmh_conversion_factor * ten) / ten
+            MeasurementUnit.IMPERIAL -> ceil(metersPerSecond * MPH_CONVERSION_FACTOR * ONE_DECIMAL_PLACE) / ONE_DECIMAL_PLACE
+            else -> ceil(metersPerSecond * KMH_CONVERSION_FACTOR * ONE_DECIMAL_PLACE) / ONE_DECIMAL_PLACE
         }
     }
 
     /**
-     * Converts the given meters per second to the requested unit
-     * @param meters The meters to convert originally provided from Garmin FIT
-     * @param requestedUnit Allows passing IMPERIAL to convert to miles, or METRIC to keep the value as is.
+     * Converts the given meters per second to the requested unit.
+     * @param metersPerSecond The meters per second to convert originally provided from Garmin FIT
+     * @param requestedUnit Allows passing IMPERIAL to convert to miles per hour, or METRIC to get kilometers per hour.
      * @return The converted value
+     */
+    @Deprecated(
+        "Converts a speed, not a duration. Use speedInRequestedUnit instead.",
+        ReplaceWith("speedInRequestedUnit(metersPerSecond, requestedUnit)")
+    )
+    fun durationInRequestedUnit(metersPerSecond: Float, requestedUnit: MeasurementUnit): Double =
+        speedInRequestedUnit(metersPerSecond, requestedUnit)
+
+    /**
+     * Converts the given meters value to the requested unit
+     * @param meters The meters to convert originally provided from Garmin FIT
+     * @param requestedUnit Allows passing IMPERIAL to convert to miles, or METRIC to convert to kilometers.
+     * @return The converted value, rounded up to two decimal places
      */
     fun distanceInRequestedUnit(meters: Float, requestedUnit: MeasurementUnit): Double {
         return when (requestedUnit) {
-            MeasurementUnit.IMPERIAL -> ceil(meters * one_meter_in_miles * one_hundred) / one_hundred
-            else -> ceil(meters / one_kilometer_in_meters * one_hundred) / one_hundred
+            MeasurementUnit.IMPERIAL -> ceil(meters * ONE_METER_IN_MILES * TWO_DECIMAL_PLACES) / TWO_DECIMAL_PLACES
+            else -> ceil(meters / ONE_KILOMETER_IN_METERS * TWO_DECIMAL_PLACES) / TWO_DECIMAL_PLACES
         }
     }
 
@@ -64,7 +79,7 @@ class MeasurementUtils {
      */
     fun elevationInRequestedUnit(meters: Int, requestedUnit: MeasurementUnit): Int {
         return when (requestedUnit) {
-            MeasurementUnit.IMPERIAL -> (meters * one_meter_in_feet).roundToInt()
+            MeasurementUnit.IMPERIAL -> (meters * ONE_METER_IN_FEET).roundToInt()
             else -> meters
         }
     }

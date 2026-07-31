@@ -21,62 +21,44 @@ class ConversionService {
      * Converts a source object to a target type.
      * @param source The source object to convert.
      * @param targetType The target type to convert to.
-     * @return The converted object.
+     * @return The converted object, or null if no registered converter handles the pair.
      */
     fun <S, T> convert(source: S, targetType: Class<T>): T? {
-        val sourceClass = source!!::class.java
-        val converter = findConverter<S, T>(sourceClass, targetType)
-            ?: findConverterInSuperclasses(sourceClass.superclass, targetType)
+        if (source == null) return null
+        val converter = findConverter<S, T>(source!!::class.java, targetType)
         return converter?.convert(source)
     }
 
     /**
-     * Determines if there is a converter that can convert a source object to a target type.
-     * @param source The source object to convert.
+     * Determines if there is a converter that can convert a source type to a target type.
+     * @param sourceType The type of the object to convert.
      * @param targetType The target type to convert to.
-     * @return The converted object.
+     * @return True if a registered converter accepts the source type and produces the target type.
      */
-    fun <S, T> canConvert(sourceType: Class<S>, targetType: Class<T>): Boolean {
-        val converter = findConverter<S, T>(sourceType, targetType)
-            ?: findConverterInSuperclasses(sourceType.superclass, targetType)
-        return converter != null
-    }
+    fun <S, T> canConvert(sourceType: Class<S>, targetType: Class<T>): Boolean =
+        findConverter<S, T>(sourceType, targetType) != null
 
     /**
-     * Finds a converter that can convert a source object to a target type.
-     * @param sourceType The source object to convert.
+     * Finds a converter that accepts the given source type and produces the given target type.
+     * A converter matches when it declares a source type the given type can be assigned to (so subclasses
+     * of a converter's source type are handled), and a target type assignable to the requested target.
+     * @param sourceType The type of the object to convert.
      * @param targetType The target type to convert to.
-     * @return The converted object.
+     * @return The matching converter, or null if none is registered.
      */
     @Suppress("UNCHECKED_CAST")
-    private fun <S, T> findConverter(sourceType: Class<*>, targetType: Class<*>): Converter<S, T>? {
-        return converters.firstOrNull { converter ->
-            converter::class.java.genericInterfaces.firstOrNull()?.let { type ->
-                val typeArguments = (type as ParameterizedType).actualTypeArguments
-                val (sourceClass, targetClass) = typeArguments.take(2)
-                (sourceClass != null && targetClass != null &&
-                        sourceType.isAssignableFrom((sourceClass as? Class<*>)!!) &&
-                        targetType.isAssignableFrom((targetClass as? Class<*>)!!)
-                    )
-            } ?: false
-        } as? Converter<S, T>
-    }
+    private fun <S, T> findConverter(sourceType: Class<*>, targetType: Class<*>): Converter<S, T>? =
+        converters.firstOrNull { converter ->
+            val declaredTypes = converter::class.java.genericInterfaces
+                .filterIsInstance<ParameterizedType>()
+                .firstOrNull { it.rawType == Converter::class.java }
+                ?.actualTypeArguments
 
-    /**
-     * Finds a converter that can convert a source object to a target type in the source object's superclasses.
-     * @param sourceClass The source object to convert.
-     * @param targetType The target type to convert to.
-     * @return The converted object.
-     */
-    private fun <S, T> findConverterInSuperclasses(sourceClass: Class<*>, targetType: Class<*>): Converter<S, T>? {
-        var currentClass: Class<*>? = sourceClass.superclass
-        while (currentClass != null) {
-            val converter = findConverter<S, T>(currentClass, targetType)  as? Converter<S, T>
-            if (converter != null) {
-                return converter
-            }
-            currentClass = currentClass.superclass
-        }
-        return null
-    }
+            val declaredSource = declaredTypes?.getOrNull(0) as? Class<*>
+            val declaredTarget = declaredTypes?.getOrNull(1) as? Class<*>
+
+            declaredSource != null && declaredTarget != null &&
+                declaredSource.isAssignableFrom(sourceType) &&
+                targetType.isAssignableFrom(declaredTarget)
+        } as? Converter<S, T>
 }

@@ -26,16 +26,16 @@ internal class FitDataWrapperConverter : Converter<FitDataWrapper, FitFileData> 
             maxHR = session.maxHeartRate?.toDouble(),
             averagePower = session.avgPower?.toDouble(),
             maxPower = session.maxPower?.toDouble(),
-            averageSpeed = measurementUtils.durationInRequestedUnit(session.avgSpeed, metricSystem),
-            maxSpeed = measurementUtils.durationInRequestedUnit(session.maxSpeed, metricSystem),
+            averageSpeed = session.avgSpeed?.let { measurementUtils.speedInRequestedUnit(it, metricSystem) },
+            maxSpeed = session.maxSpeed?.let { measurementUtils.speedInRequestedUnit(it, metricSystem) },
             averageCalories = session.totalCalories?.toDouble(),
-            averageTemperature = measurementUtils.temperatureInRequestedUnit(session.avgTemperature?.toDouble() ?: 0.0, metricSystem),
-            activityStartDateTime = session.startTime?.date?.toInstant().toString(),
-            totalDistance = measurementUtils.distanceInRequestedUnit(session.totalDistance, metricSystem), // convert to km
+            averageTemperature = session.avgTemperature?.let { measurementUtils.temperatureInRequestedUnit(it.toDouble(), metricSystem) },
+            activityStartDateTime = session.startTime?.date?.toInstant()?.toString().orEmpty(),
+            totalDistance = session.totalDistance?.let { measurementUtils.distanceInRequestedUnit(it, metricSystem) }, // convert to km
             totalAscent = session.totalAscent?.let { measurementUtils.elevationInRequestedUnit(it, metricSystem) },
             totalDescent = session.totalDescent?.let { measurementUtils.elevationInRequestedUnit(it, metricSystem) },
-            sport = session.sport.toString(),
-            productsUsed = products.toSet(),
+            sport = session.sport?.toString().orEmpty(),
+            productsUsed = products,
             events = events,
             locationRecords = records,
         )
