@@ -1,4 +1,3 @@
-import org.gradle.kotlin.dsl.support.kotlinCompilerOptions
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 import java.io.FileWriter
 
@@ -12,11 +11,11 @@ import java.io.FileWriter
 
 plugins {
     // Apply the org.jetbrains.kotlin.jvm Plugin to add support for Kotlin.
-    kotlin("multiplatform") version "2.0.21"
-    kotlin("plugin.serialization") version "2.0.0"
+    kotlin("multiplatform") version "2.3.10"
+    kotlin("plugin.serialization") version "2.3.10"
 
-    // For my fat JAR needs
-    id("com.github.johnrengelman.shadow") version "8.1.1"
+    // For my fat JAR needs. GradleUp is the maintained fork of johnrengelman/shadow, which stopped at 8.1.1.
+    id("com.gradleup.shadow") version "9.6.1"
 
     // Apply the test-logger plugin to add support outputting test results neatly.
     id("com.adarshr.test-logger") version "4.0.0"
@@ -25,14 +24,14 @@ plugins {
     id("org.jetbrains.dokka") version "1.9.20"
 
     //K2PB - Protobuf
-    id("com.glureau.k2pb") version "0.9.25"
+    id("com.glureau.k2pb") version "0.9.34"
 
     `maven-publish`
     jacoco
 }
 
 group = "kjm.fit.converter"
-version = "0.5.2-alpha"
+version = "0.5.3-alpha"
 
 val customPackage = "kjm.fit.converter"
 
@@ -49,9 +48,6 @@ repositories {
 kotlin {
     jvmToolchain(21)
     jvm {
-        // Configure the JVM target with Java library compatibility
-        withJava()
-
         compilations.all {
             compileTaskProvider.configure {
                 compilerOptions {
@@ -68,20 +64,19 @@ kotlin {
 
     sourceSets {
         // Use the old Java-style source directories
-        val jvmMain by getting {
-            kotlin.srcDir("build/generated/ksp/metadata/commonMain/kotlin")
+        getByName("jvmMain") {
             kotlin.srcDir("src/main/kotlin")
             resources.srcDir("src/main/resources")
 
             dependencies {
                 implementation("com.garmin:fit:21.205.0")
-                implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.7.0")
-                implementation("org.jetbrains.kotlinx:kotlinx-serialization-protobuf:1.7.0")
-                implementation("com.glureau.k2pb:k2pb-runtime-jvm:0.9.24")
+                implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.11.0")
+                implementation("org.jetbrains.kotlinx:kotlinx-serialization-protobuf:1.11.0")
+                implementation("com.glureau.k2pb:k2pb-runtime-jvm:0.9.34")
             }
         }
 
-        val jvmTest by getting {
+        getByName("jvmTest") {
             kotlin.srcDir("src/test/kotlin")
             resources.srcDir("src/test/resources")
             dependencies {
@@ -89,15 +84,16 @@ kotlin {
                 implementation("org.jetbrains.kotlin:kotlin-test-junit5")
 
                 // Use the JUnit 5 integration.
-                implementation("org.junit.jupiter:junit-jupiter-engine:5.10.3")
-                implementation("org.junit.jupiter:junit-jupiter-params:5.10.3")
+                implementation("org.junit.jupiter:junit-jupiter-engine:5.14.4")
+                implementation("org.junit.jupiter:junit-jupiter-params:5.14.4")
             }
         }
     }
 }
 dependencies {
-    // Temporary solution, k2pb plugin should handle that automatically
-    ksp("com.glureau.k2pb:k2pb-compiler:0.9.25")
+    // Temporary solution, k2pb plugin should handle that automatically.
+    // Kotlin Multiplatform wants the target-specific configuration rather than the plain `ksp` one.
+    add("kspJvm", "com.glureau.k2pb:k2pb-compiler:0.9.34")
 }
 
 publishing {

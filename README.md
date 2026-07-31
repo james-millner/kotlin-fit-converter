@@ -1,7 +1,7 @@
 # Kotlin Fit Converter
 
-[![Kotlin](https://img.shields.io/badge/kotlin-2.0.0-blue.svg)](https://kotlinlang.org/)
-[![Latest Release](https://img.shields.io/badge/0.5.2-alpha-red)](https://github.com/example/garmin-fit-converter/releases)
+[![Kotlin](https://img.shields.io/badge/kotlin-2.3.10-blue.svg)](https://kotlinlang.org/)
+[![Latest Release](https://img.shields.io/badge/0.5.3-alpha-red)](https://github.com/example/garmin-fit-converter/releases)
 [![Gradle Build & Test](https://github.com/james-millner/kotlin-fit-converter/actions/workflows/gradle.yml/badge.svg)](https://github.com/james-millner/kotlin-fit-converter/actions/workflows/gradle.yml)
 
 The Kotlin Fit Converter Library is a Kotlin-based utility that allows users to convert Garmin FIT files into different formats.
@@ -26,6 +26,6 @@ The version of the Garmin FIT SDK used in this project is **21.205.0.**
 
 ## Requirements
 
-- Java Development Kit (JDK) 19 or higher.
-- Kotlin 1.8.22 or higher.
+- Java Development Kit (JDK) 21 or higher.
+- Kotlin 2.3.10 or higher.
 - Garmin FIT file (.fit) to convert.

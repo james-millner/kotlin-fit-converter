@@ -467,6 +467,9 @@ object ProtoBufSchemaGenerator {
         "polymorphic types"
     )
 
+    // kotlinx-serialization 1.8 sealed SerialDescriptor against outside implementations, so delegating to it
+    // now needs an explicit opt-in.
+    @OptIn(SealedSerializationApi::class)
     private class NotNullSerialDescriptor(val original: SerialDescriptor) : SerialDescriptor by original {
         override val isNullable = false
     }
