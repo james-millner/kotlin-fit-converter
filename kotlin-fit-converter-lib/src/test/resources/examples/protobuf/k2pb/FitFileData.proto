@@ -31,6 +31,7 @@ import "kjm/fit/converter/LocationRecord.proto";
 //  @param locationRecords Activity records during the activity.
 //  @param activeTime Time spent active during the activity, in seconds. Only recorded by devices on Garmin
 //  FIT SDK 21.205.0 or later, so it is absent from older files.
+//  @param totalTimerTime Time the activity timer ran for, in seconds, excluding any time the timer was paused.
 //  @see FitProduct
 //  @see FitEvent
 //  @see LocationRecord
@@ -70,4 +71,6 @@ message FitFileData {
   repeated LocationRecord locationRecords = 32;
   double activeTime = 33;
   com.glureau.k2pb.ExplicitNullability isActiveTimeNull = 34;
+  double totalTimerTime = 35;
+  com.glureau.k2pb.ExplicitNullability isTotalTimerTimeNull = 36;
 }

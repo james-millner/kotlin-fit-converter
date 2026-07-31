@@ -68,6 +68,13 @@ class FitDataWrapperConverterTest {
     }
 
     @Test
+    fun mapsTheSessionTotalTimerTime() {
+        val fitFileData = conversionService.convert(fitDataWrapper, FitFileData::class.java)
+
+        assertEquals(16222.0, fitFileData!!.totalTimerTime)
+    }
+
+    @Test
     fun mapsTheSessionActiveTimeWhichNoSampleFileIsOldEnoughToCarry() {
         val timedSession = FitDataWrapper(
             fitFileName = "timed-session",
@@ -104,6 +111,7 @@ class FitDataWrapperConverterTest {
         assertNull(fitFileData.totalDistance)
         assertNull(fitFileData.averageTemperature)
         assertNull(fitFileData.activeTime)
+        assertNull(fitFileData.totalTimerTime)
         assertNull(fitFileData.totalAscent)
         assertEquals("", fitFileData.activityStartDateTime)
         assertEquals("", fitFileData.sport)
